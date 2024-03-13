@@ -101,7 +101,7 @@ public class StudyWithMeGUI implements ActionListener{
     private RoundedButton ControlButton(RoundedButton b, int size, String imagePath) {
         Dimension dButton = new Dimension(size, size);
         b = new RoundedButton(30, 30);
-        b.setBorder(new RoundCorner(100));
+        //b.setBorder(new RoundCorner(100));
         b.setBackground(Color.WHITE);
         b.setPreferredSize(dButton);
         ImageIcon original = new ImageIcon(getClass().getResource(imagePath));
