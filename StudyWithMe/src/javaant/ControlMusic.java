@@ -3,6 +3,9 @@ package javaant;
 import javax.swing.*;
 import javax.sound.sampled.*;
 import java.io.*;
+import static java.lang.Math.random;
+import java.util.ArrayList;
+import java.util.Random;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
@@ -13,8 +16,44 @@ public class ControlMusic{
     long musicProgress, musicDuration;
     FileInputStream fin;
     BufferedInputStream bin;
+    //music setup
+    private ArrayList<String> musicList;
+    private String thisDir;
+    public int nowI;
+    public int musicNum;
+    Random random = new Random();
     
-    public void PlayMusic(String musicPath){
+    
+    public ControlMusic(){
+        //create file path
+        thisDir = System.getProperty("user.dir").replace(File.separator, "\\\\");
+        System.out.println(thisDir);
+        File musicdir = new File(thisDir+"\\src\\javaant\\music\\");
+        //regist all files in specific folder to array
+        File[] fileA = musicdir.listFiles();
+        //getName for each file
+        musicList = new ArrayList<>();
+        for (File f : fileA) {
+                musicList.add(f.getName());
+        }
+        this.musicNum = musicList.size();
+        System.out.println(musicList);
+
+    }
+    public String getMusicName() {
+            String fileName = musicList.get(nowI);
+            String musicName = "";
+            for (char ch : fileName.toCharArray()) {
+                if (".".equals(String.valueOf(ch))) {
+                    break;
+                }
+                musicName += ch;
+            }
+        return musicName;
+    }
+    public void PlayMusic(int i){
+        musicPath = thisDir + "\\src\\javaant\\music\\" + musicList.get(i);
+        this.nowI = i;
         try {
             fin = new FileInputStream(musicPath);
             bin = new BufferedInputStream(fin);
@@ -23,7 +62,8 @@ public class ControlMusic{
             //fix later
             this.musicPath = musicPath;
             //----
-            
+            System.out.println("now playing music no." + i);
+            displayPlaying();
             
             //old ver.
             /*File musicPath = new File(mPath);
@@ -40,6 +80,7 @@ public class ControlMusic{
                 System.out.println("file not found");
             }*/
         }catch(IOException | JavaLayerException e){
+            System.out.println("[PlayMusic: exception]");
             e.printStackTrace();
         }
         new Thread() {
@@ -48,9 +89,12 @@ public class ControlMusic{
                 try {
                     player.play();
                     if (StudyWithMeGUI.isLoop && player.isComplete()) {
-                        PlayMusic(musicPath);
+                        PlayMusic(i);
+                    }else if (player.isComplete()){
+                        NextMusic();
                     }
-                }catch(Exception ex) {
+                }catch(JavaLayerException ex) {
+                    System.out.println("[PlayMusicThread: exception]");
                     ex.printStackTrace();
                 }
             }
@@ -63,6 +107,7 @@ public class ControlMusic{
             musicProgress = fin.available();
             player.close();
         }catch(IOException ex) {
+            System.out.println("[PauseMusic: exception]");
             ex.printStackTrace();
                 }
         }
@@ -77,7 +122,8 @@ public class ControlMusic{
             try {
                 fin.skip(musicDuration - musicProgress);
             }catch(IOException ex){
-            ex.printStackTrace();
+                System.out.println("[ResumeMusic: exception]");
+                ex.printStackTrace();
             }
 
         }catch(IOException | JavaLayerException e){
@@ -89,14 +135,36 @@ public class ControlMusic{
                 try {
                     player.play();
                 }catch(JavaLayerException ex) {
+                    System.out.println("[ResumeMusicThread: exception]");
                     ex.printStackTrace();
                 }
             }
         }.start();
     }
-    //lazy laew kub
-    public void NextMusic(){}
-    public void PreviousMusic(){}
-    
+    public void NextMusic(){
+        System.out.println("next music");
+        PauseMusic();
+        if(nowI == musicNum-1) {
+                this.nowI = random.nextInt(musicNum);
+            }
+            else {nowI += 1;}
+        PlayMusic(nowI);
+        displayPlaying();
+    }
+    public void PreviousMusic(){
+        System.out.println("next music");
+        PauseMusic();
+        if(nowI == 0) {
+                this.nowI = random.nextInt(musicNum);
+            }
+            else {nowI -= 1;}
+        PlayMusic(nowI);
+        displayPlaying();
+    }
+     public void displayPlaying() {
+        String musicName = getMusicName();
+        String[] splitName = musicName.split(" - ", 2);
+        StudyWithMeGUI.setDisplayName(splitName[1], splitName[0]);
+    }
 }
     

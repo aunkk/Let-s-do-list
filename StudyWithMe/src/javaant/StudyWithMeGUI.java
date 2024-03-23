@@ -9,23 +9,31 @@ import java.io.*;
 import java.util.*;
 public class StudyWithMeGUI implements ActionListener{
     private JFrame jframe;
-    private JPanel pBase, pImage, pUpper, pText, pButton, pPlayPause, mTime, pMName;
-    private JLabel displayA, displayName, mPass, mAll;
+    private JPanel pBase, pUpper, pText, pButton, pPlayPause, mTime, pMName1, pMName2;
+    private JLabel displayA;
     private RoundedButton bPlay, bPause, bNext, bBack, bLoop;
+    
     private ImageIcon animated;
     private Border bd;
     
     //music setup
-    ControlMusic control;
+    private static JLabel displayName = new JLabel("----------");
+    private static JLabel displayPName = new JLabel("nothing is being played");
+    private static JLabel mPass = new JLabel("00:00");
+    private static JLabel mAll = new JLabel("/xx:xx");
+    private ControlMusic control;
     static boolean isLoop = false;
-    //String musicA[] = {"Tofuus - Iris.mp3", "Tofuus - Magnolia jane.mp3", "Tofuus - Soda.mp3"};
-    ArrayList<String> musicList;
-    private String thisDir;
+    //private ArrayList<String> musicList;
+    //private String thisDir;
+    Random random = new Random();
+    private int musicI = 0;
+    
     
     public StudyWithMeGUI() {
     
     control = new ControlMusic();
-            
+    
+    //**GUI
     jframe = new JFrame("Music Player");
     pBase = new JPanel(new BorderLayout());
     //pBase.setBackground(Color.WHITE);
@@ -44,21 +52,27 @@ public class StudyWithMeGUI implements ActionListener{
     
     pUpper = new JPanel(new BorderLayout());
     //pUpper.setBackground(Color.WHITE);
-    pText = new JPanel(new GridLayout(2, 1));
+    pText = new JPanel(new GridLayout(3, 1));
     pText.setBorder(bd);
     pBase.add(pUpper, BorderLayout.CENTER);
     //displayA.setBorder(bd);
     pUpper.add(displayA, BorderLayout.CENTER);
     pUpper.add(pText, BorderLayout.SOUTH);
-    displayName = new JLabel("----------");
-    mPass = new JLabel("00:00");
-    mAll = new JLabel("/xx:xx");
-    pMName = new JPanel();
-    pMName.add(displayName);
+    
+    pMName1 = new JPanel();
+    pMName2 = new JPanel();
+    pMName1.add(displayName);
+    pMName2.add(displayPName);
+    displayName.setFont(new Font("Comic Sans MS", 0, 17));
+    displayPName.setFont(new Font("Comic Sans MS", 0, 15));
+    mPass.setFont(new Font("Comic Sans MS", 0, 12));
+    mAll.setFont(new Font("Comic Sans MS", 0, 12));
+    
     mTime = new JPanel();
     mTime.add(mPass);
     mTime.add(mAll);
-    pText.add(pMName);
+    pText.add(pMName1);
+    pText.add(pMName2);
     pText.add(mTime);
     //pText.add(vocalistName);
     
@@ -96,28 +110,13 @@ public class StudyWithMeGUI implements ActionListener{
     jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     jframe.pack();
     jframe.setVisible(true);
-    
+    jframe.setLocationRelativeTo(null);
     //action
     bBack.addActionListener(this);
     bPlay.addActionListener(this);
     bPause.addActionListener(this);
     bNext.addActionListener(this);
     bLoop.addActionListener(this);
-    
-    //**create musicList**
-    //create file path
-    thisDir = System.getProperty("user.dir").replace(File.separator, "\\\\");
-    System.out.println("just checking ja");
-    System.out.println(thisDir);
-    File musicdir = new File(thisDir+"\\src\\javaant\\music\\");
-    //regist all files in specific folder to array
-    File[] fileA = musicdir.listFiles();
-    //getName for each file
-    musicList = new ArrayList<>();
-    for (File f : fileA) {
-                musicList.add(f.getName());
-            }
-    System.out.println(musicList);
     
     }
     
@@ -138,11 +137,10 @@ public class StudyWithMeGUI implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Random random = new Random();
-        int randomI = 0;
-        String musicName;
+        int randomI2 = 0;
         
         if (e.getSource() == bPause) {
+            System.out.println("pause");
             control.PauseMusic();
             
             //change Icon
@@ -157,47 +155,58 @@ public class StudyWithMeGUI implements ActionListener{
         else if (e.getSource() == bPlay) {
             //**testing
             //random 0-3
-            
-            //for now, it'll random every time when pressed play button 
-            randomI = random.nextInt(3);
-      
-            control.PlayMusic(thisDir + "\\src\\javaant\\music\\" + musicList.get(randomI));
-            
-            musicName = getMusicName(randomI);
-            displayName.setText(musicName);
+            System.out.println("play..");
+            if ((control.player == null)||(control.player.isComplete())) {
+                do
+                {
+                    randomI2 = random.nextInt(control.musicNum);
+                }
+                while ((randomI2 != 0)&&(musicI == randomI2));
+                this.musicI = randomI2;
+                control.PlayMusic(musicI);
+                //displayPlaying();
+            } else {
+                control.ResumeMusic();
+                System.out.println("resume until" + control.musicDuration);
+            }
+           
             //change Icon
             //might add .gif transition later :D
             CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
             cardLayout.show(pPlayPause, "bPause");  
             
         }
-        else {
+        else if (e.getSource() == bBack){
+            /*.out.println("previous music");
             control.PauseMusic();
-            /*if (randomI < musicList.size()) {
-                randomI += 1;
-            }else {
-                randomI = 0;
+            if(musicI == 0) {
+                this.musicI = random.nextInt(control.musicNum);
             }
-            System.out.println(musicList.size());
-            System.out.println(randomI);*/
-            randomI = random.nextInt(3);
-            control.PlayMusic(thisDir + "\\src\\javaant\\music\\" + musicList.get(randomI));
+            else {musicI -= 1;}*/
+            control.PreviousMusic();
+            //displayPlaying();
             
-            musicName = getMusicName(randomI);
-            displayName.setText(musicName);
         }
-        
-    }
-    public String getMusicName(int randomI) {
-            String fileName = musicList.get(randomI);
-            String musicName = "";
-            for (char ch : fileName.toCharArray()) {
-                if (".".equals(String.valueOf(ch))) {
-                    break;
-                }
-                musicName += ch;
+        else if (e.getSource() == bNext){
+            /*System.out.println("next music");
+            control.PauseMusic();
+            if(musicI == control.musicNum-1) {
+                this.musicI = random.nextInt(control.musicNum);
             }
-        return musicName;
+            else {musicI += 1;}*/
+            control.NextMusic();
+            //displayPlaying();
+        }
+    }
+    public static void setDisplayName(String m, String p) {
+        displayName.setText(m);
+        displayPName.setText(p);
+    }
+    public void displayPlaying() {
+        String musicName = control.getMusicName();
+        String[] splitName = musicName.split(" - ", 2);
+        displayName.setText(splitName[1]);
+        displayPName.setText(splitName[0]);
     }
     public static void main(String[] args) {
         StudyWithMeGUI a = new StudyWithMeGUI();

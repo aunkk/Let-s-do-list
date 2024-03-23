@@ -45,7 +45,7 @@ public class ToDoListGUI implements ActionListener {
         if (command.equalsIgnoreCase("Add Task")){
             Task task = new Task();
             
-            task.get
+            task.get()
         }
     }
 }
