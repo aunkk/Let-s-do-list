@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-
-import java.io.*;
 import java.util.*;
 public class StudyWithMeGUI implements ActionListener{
     private JFrame jframe;
@@ -127,30 +125,40 @@ public class StudyWithMeGUI implements ActionListener{
         //b.setBorder(new RoundCorner(100));
         b.setBackground(Color.WHITE);
         b.setPreferredSize(dButton);
-        ImageIcon original = new ImageIcon(getClass().getResource(imagePath));
-        Image img = original.getImage();
-        Image scaled = img.getScaledInstance(size-20, size-20, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaled);
-        b.setIcon(scaledIcon);
+        try{
+            ImageIcon original = new ImageIcon(getClass().getResource(imagePath));
+            Image img = original.getImage();
+            Image scaled = img.getScaledInstance(size-20, size-20, Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaled);
+            b.setIcon(scaledIcon);
+        } catch(Exception ex){
+            b.setText(b.getName());
+        }
         return b;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         int randomI2 = 0;
-        
+        CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
         if (e.getSource() == bPause) {
             System.out.println("pause");
             control.PauseMusic();
             
             //change Icon
             //might add .gif transition later 
-            CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
+            //CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
             cardLayout.show(pPlayPause, "bPlay");  
         }
         else if (e.getSource() == bLoop){
-            if (isLoop == false) {isLoop = true;}
-            else {isLoop = false;}
+            if (isLoop == false) {
+                isLoop = true;
+                bLoop.setBackground(Color.LIGHT_GRAY);
+            
+            }else {
+                isLoop = false;
+                bLoop.setBackground(Color.WHITE);
+            }
         }
         else if (e.getSource() == bPlay) {
             //**testing
@@ -172,7 +180,7 @@ public class StudyWithMeGUI implements ActionListener{
            
             //change Icon
             //might add .gif transition later :D
-            CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
+            //CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
             cardLayout.show(pPlayPause, "bPause");  
             
         }
@@ -184,6 +192,7 @@ public class StudyWithMeGUI implements ActionListener{
             }
             else {musicI -= 1;}*/
             control.PreviousMusic();
+            cardLayout.show(pPlayPause, "bPause"); 
             //displayPlaying();
             
         }
@@ -195,6 +204,7 @@ public class StudyWithMeGUI implements ActionListener{
             }
             else {musicI += 1;}*/
             control.NextMusic();
+            cardLayout.show(pPlayPause, "bPause"); 
             //displayPlaying();
         }
     }
