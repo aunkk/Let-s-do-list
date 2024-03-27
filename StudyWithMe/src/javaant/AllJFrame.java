@@ -9,7 +9,7 @@ import javax.swing.*;
 //Noey : learn about calendar
 
 
-public class MainJFrame extends JFrame{
+public class AllJFrame extends JFrame{
 //    private JFrame jframe;
     private JPanel leftp, rightp, upperp, lowerp, todolist, timer, calendar, searchTool, music,noteDisplay,noteEdit;
     private JButton tasknote;
@@ -18,7 +18,7 @@ public class MainJFrame extends JFrame{
             upperPLayout, noteDisplayLayout, noteEditLayout,lowerpLayout,layout, rightPLayout;
     private JLabel labeltodolist;
     
-    public MainJFrame() {
+    public AllJFrame() {
 //    jframe = new JFrame();
     leftp = new JPanel();
     upperp = new JPanel();
@@ -264,19 +264,19 @@ public class MainJFrame extends JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
  
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                new AllJFrame().setVisible(true);
             }
         });
     }
