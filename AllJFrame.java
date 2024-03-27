@@ -9,7 +9,7 @@ import javax.swing.*;
 //Noey : learn about calendar
 
 
-public class MainJFrame extends JFrame{
+public class AllJFrame extends JFrame{
 //    private JFrame jframe;
     private JPanel leftp, rightp, upperp, lowerp, todolist, timer, calendar, searchTool, music,noteDisplay,noteEdit;
     private JButton tasknote;
@@ -17,8 +17,9 @@ public class MainJFrame extends JFrame{
     private GroupLayout timerLayout, leftpLayout, calendarLayout, musicLayout, searchToolLayout,
             upperPLayout, noteDisplayLayout, noteEditLayout,lowerpLayout,layout, rightPLayout;
     private JLabel labeltodolist;
+    private CircleButton addButton;
     
-    public MainJFrame() {
+    public AllJFrame() {
 //    jframe = new JFrame();
     leftp = new JPanel();
     upperp = new JPanel();
@@ -34,6 +35,7 @@ public class MainJFrame extends JFrame{
     tasknote = new JButton();
     textsearch = new JTextField();
     labeltodolist = new JLabel();
+    addButton = new CircleButton();
     
     setBackground( new Color(0,0,0));
     
@@ -184,31 +186,41 @@ public class MainJFrame extends JFrame{
         lowerp.setLayout(lowerpLayout);
         lowerpLayout.setHorizontalGroup(
             lowerpLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(lowerpLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(noteDisplay, GroupLayout.DEFAULT_SIZE,GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
-                .addComponent(noteEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(tasknote, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
+            lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lowerP3Layout.createSequentialGroup()
+                .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lowerP3Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(lowerP3Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
         lowerpLayout.setVerticalGroup(
             lowerpLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(lowerpLayout.createSequentialGroup()
-                .addGroup(lowerpLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(GroupLayout.Alignment.TRAILING, lowerpLayout.createSequentialGroup()
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tasknote))
-                    .addGroup(GroupLayout.Alignment.TRAILING, lowerpLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lowerP3Layout.createSequentialGroup()
+                .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(lowerP3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lowerP3Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(lowerpLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addGroup(lowerpLayout.createSequentialGroup()
-                                .addComponent(noteDisplay, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(41, 41, 41))
-                            .addGroup(lowerpLayout.createSequentialGroup()
-                                .addComponent(noteEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(lowerP3Layout.createSequentialGroup()
+                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton1)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(24, 24, 24))
         );
 
@@ -264,19 +276,19 @@ public class MainJFrame extends JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
  
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                new AllJFrame().setVisible(true);
             }
         });
     }
