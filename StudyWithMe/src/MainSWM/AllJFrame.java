@@ -57,6 +57,7 @@ public class AllJFrame extends javax.swing.JFrame {
         noteDisplay = new javax.swing.JPanel();
         noteEditPanel = new decorClass.RoundedPanel();
         addButton = new decorClass.CircleButton();
+        notificationButton = new decorClass.CircleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 230, 196));
@@ -238,7 +239,7 @@ public class AllJFrame extends javax.swing.JFrame {
                 .addGroup(upperPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SearchTool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -286,6 +287,9 @@ public class AllJFrame extends javax.swing.JFrame {
             }
         });
 
+        notificationButton.setBackground(new java.awt.Color(235, 196, 98));
+        notificationButton.setToolTipText("");
+
         javax.swing.GroupLayout lowerP3Layout = new javax.swing.GroupLayout(lowerP3);
         lowerP3.setLayout(lowerP3Layout);
         lowerP3Layout.setHorizontalGroup(
@@ -296,6 +300,8 @@ public class AllJFrame extends javax.swing.JFrame {
                 .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lowerP3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(notificationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lowerP3Layout.createSequentialGroup()
                         .addComponent(noteEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -310,7 +316,9 @@ public class AllJFrame extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addComponent(noteEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                            .addComponent(notificationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -407,6 +415,7 @@ public class AllJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel noteDisplay;
     private decorClass.RoundedPanel noteEditPanel;
     private javax.swing.JScrollPane noteScroll;
+    private decorClass.CircleButton notificationButton;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel rightP;
     private decorClass.RoundedButton searchButton;

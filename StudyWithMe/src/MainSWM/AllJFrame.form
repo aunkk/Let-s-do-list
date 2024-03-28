@@ -249,7 +249,7 @@
                           <Component id="SearchTool" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="Calendar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="265" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="224" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
@@ -436,6 +436,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="notificationButton" min="-2" pref="55" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="addButton" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -455,7 +457,10 @@
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="noteEditPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="addButton" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="addButton" pref="55" max="32767" attributes="0"/>
+                                  <Component id="notificationButton" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <Component id="noteScroll" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -526,6 +531,14 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="decorClass.CircleButton" name="notificationButton">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="62" green="c4" red="eb" type="rgb"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -3,20 +3,26 @@ package MainSWM;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import decorClass.*;
 
 public class TaskReal extends JPanel{
     public JCheckBox task;
     public float alpha;
+    public RoundedPanel plate;
     public TaskReal(){
         this.setSize(400, 200);
         this.alpha = 0;
-        setBackground(Color.WHITE);
+        setBackground(null);
+        
+        plate = new RoundedPanel();
+        setBackground(new Color(198,227,193));
         
         task = new JCheckBox("Type your task");
-        task.setFont(new java.awt.Font("Consolas", 0, 18));
+        task.setFont(new java.awt.Font("Comic Sans MS", 1, 18));
         task.setContentAreaFilled(false);
         task.setIconTextGap(15);
-        this.add(task);
+        plate.add(task);
+        this.add(plate);
         task.addItemListener(new ItemListener(){
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -28,7 +34,7 @@ public class TaskReal extends JPanel{
                 else{
                     task.setForeground(Color.BLACK);
                     Font font = task.getFont();
-                    task.setFont(font.deriveFont(Font.ITALIC));
+                    task.setFont(font.deriveFont(Font.BOLD));
                 }
             }
         });
