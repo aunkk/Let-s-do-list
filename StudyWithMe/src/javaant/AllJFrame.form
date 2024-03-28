@@ -239,6 +239,7 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new RoundedPanel(50, 50)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="StudyWithMeGUI swmG = new StudyWithMeGUI();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="System.out.println(jPanel2.getHeight());"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jPanel2.add(swmG.pBase);"/>
               </AuxValues>
 

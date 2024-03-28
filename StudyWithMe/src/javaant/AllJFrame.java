@@ -121,6 +121,7 @@ public class AllJFrame extends javax.swing.JFrame {
 
         jPanel2.add(swmG.pBase);
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        System.out.println(jPanel2.getHeight());
 
         SearchTool.setBackground(new java.awt.Color(255, 255, 255));
 

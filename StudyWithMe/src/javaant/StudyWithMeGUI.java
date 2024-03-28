@@ -8,7 +8,8 @@ import java.util.*;
 public class StudyWithMeGUI implements ActionListener{
     private JFrame jframe;
     JPanel pBase;
-    private JPanel pAni, pUpper, pText, pButton, pPlayPause, mTime, pMName1, pMName2;
+    private JPanel pAni, pUpper, pText, pPlayPause, mTime, pMName1, pMName2;
+    private RoundedPanel pButton;
     private JLabel displayA;
     private RoundedButton bPlay, bPause, bNext, bBack, bLoop;
     
@@ -92,7 +93,7 @@ public class StudyWithMeGUI implements ActionListener{
     //pText.add(mTime);
     //pText.add(vocalistName);
     
-    pButton = new JPanel();
+    pButton = new RoundedPanel();
     pBase.add(pButton, BorderLayout.SOUTH);
     pPlayPause = new JPanel(new CardLayout());
     
@@ -113,15 +114,8 @@ public class StudyWithMeGUI implements ActionListener{
     CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
     cardLayout.show(pPlayPause, "bPlay");
     //pPlayPause.show();
-    
-    /*
-    jframe.add(pUpper);
-    jframe.add(pButton, 3);
-    pUpper.setLayout(new BorderLayout());
-    pUpper.add(pImage, BorderLayout.WEST);
-    pImage.add(displayA);
-    */
-    
+
+    System.out.println(jframe.getHeight());
     
     jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     jframe.pack();
