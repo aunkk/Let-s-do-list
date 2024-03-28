@@ -4,20 +4,27 @@
  */
 package MainSWM;
 
+import decorClass.EditButton;
 import decorClass.RoundedPanel;
+import decorClass.TaskReal;
+import java.awt.*;
 import javaant.StudyWithMe_P;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Admin
  */
 public class AllJFrame extends javax.swing.JFrame {
-
+    int round = 0;
+    int numRow = 1;
+    int numCol = 2;
     /**
      * Creates new form NewJFrame
      */
     public AllJFrame() {
         initComponents();
+        
     }
 
     /**
@@ -31,7 +38,7 @@ public class AllJFrame extends javax.swing.JFrame {
 
         leftP = new javax.swing.JPanel();
         timerPanel = new javax.swing.JPanel();
-        roundedPanel3 = new decorClass.RoundedPanel();
+        timepanel = new decorClass.RoundedPanel();
         todoPanel = new javax.swing.JPanel();
         todoScroll = new javax.swing.JScrollPane();
         panel = new javax.swing.JPanel();
@@ -39,19 +46,17 @@ public class AllJFrame extends javax.swing.JFrame {
         rightP = new javax.swing.JPanel();
         upperP = new javax.swing.JPanel();
         Calendar = new RoundedPanel(50, 50);
-        roundedPanel1 = new decorClass.RoundedPanel();
+        CalendarRoundPanel = new decorClass.RoundedPanel();
         StudyWithMe_P swm = new StudyWithMe_P();
         swm_panel = new RoundedPanel(50, 50);
         SearchTool = new RoundedPanel(50, 50);
-        roundedPanel2 = new decorClass.RoundedPanel();
-        roundedButton1 = new decorClass.RoundedButton();
+        searchPanel = new decorClass.RoundedPanel();
+        searchButton = new decorClass.RoundedButton();
         lowerP3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
-        roundedPanel7 = new decorClass.RoundedPanel();
-        roundedPanel9 = new decorClass.RoundedPanel();
-        roundedPanel4 = new decorClass.RoundedPanel();
-        circleButton1 = new decorClass.CircleButton();
+        noteScroll = new javax.swing.JScrollPane();
+        noteDisplay = new javax.swing.JPanel();
+        noteEditPanel = new decorClass.RoundedPanel();
+        addButton = new decorClass.CircleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 230, 196));
@@ -61,17 +66,17 @@ public class AllJFrame extends javax.swing.JFrame {
 
         timerPanel.setBackground(new java.awt.Color(235, 212, 235));
 
-        roundedPanel3.setBackground(new java.awt.Color(237, 217, 241));
+        timepanel.setBackground(new java.awt.Color(237, 217, 241));
 
-        javax.swing.GroupLayout roundedPanel3Layout = new javax.swing.GroupLayout(roundedPanel3);
-        roundedPanel3.setLayout(roundedPanel3Layout);
-        roundedPanel3Layout.setHorizontalGroup(
-            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout timepanelLayout = new javax.swing.GroupLayout(timepanel);
+        timepanel.setLayout(timepanelLayout);
+        timepanelLayout.setHorizontalGroup(
+            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        roundedPanel3Layout.setVerticalGroup(
-            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
+        timepanelLayout.setVerticalGroup(
+            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout timerPanelLayout = new javax.swing.GroupLayout(timerPanel);
@@ -80,32 +85,33 @@ public class AllJFrame extends javax.swing.JFrame {
             timerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(timerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(timepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         timerPanelLayout.setVerticalGroup(
             timerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(timerPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(timepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         todoPanel.setBackground(new java.awt.Color(212, 227, 235));
 
-        todoScroll.setBackground(new java.awt.Color(212, 227, 235));
+        todoScroll.setBackground(new java.awt.Color(200, 66, 68));
+        todoScroll.setBorder(null);
 
-        panel.setBackground(new java.awt.Color(212, 227, 235));
+        panel.setBackground(new java.awt.Color(160, 198, 190));
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+            .addGap(0, 213, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 253, Short.MAX_VALUE)
+            .addGap(0, 172, Short.MAX_VALUE)
         );
 
         todoScroll.setViewportView(panel);
@@ -114,11 +120,17 @@ public class AllJFrame extends javax.swing.JFrame {
         todoPanel.setLayout(todoPanelLayout);
         todoPanelLayout.setHorizontalGroup(
             todoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(todoScroll)
+            .addGroup(todoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(todoScroll)
+                .addContainerGap())
         );
         todoPanelLayout.setVerticalGroup(
             todoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(todoScroll)
+            .addGroup(todoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(todoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         taskLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -131,11 +143,11 @@ public class AllJFrame extends javax.swing.JFrame {
         leftPLayout.setHorizontalGroup(
             leftPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(timerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(leftPLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
+            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         leftPLayout.setVerticalGroup(
             leftPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,9 +155,9 @@ public class AllJFrame extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(taskLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(todoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(timerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         rightP.setBackground(new java.awt.Color(255, 255, 255));
@@ -153,17 +165,19 @@ public class AllJFrame extends javax.swing.JFrame {
 
         upperP.setBackground(new java.awt.Color(211, 235, 221));
 
-        roundedPanel1.setBackground(new java.awt.Color(198, 198, 198));
+        Calendar.setBackground(null);
 
-        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
-        roundedPanel1.setLayout(roundedPanel1Layout);
-        roundedPanel1Layout.setHorizontalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        CalendarRoundPanel.setBackground(new java.awt.Color(198, 198, 198));
+
+        javax.swing.GroupLayout CalendarRoundPanelLayout = new javax.swing.GroupLayout(CalendarRoundPanel);
+        CalendarRoundPanel.setLayout(CalendarRoundPanelLayout);
+        CalendarRoundPanelLayout.setHorizontalGroup(
+            CalendarRoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        roundedPanel1Layout.setVerticalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 131, Short.MAX_VALUE)
+        CalendarRoundPanelLayout.setVerticalGroup(
+            CalendarRoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout CalendarLayout = new javax.swing.GroupLayout(Calendar);
@@ -171,51 +185,53 @@ public class AllJFrame extends javax.swing.JFrame {
         CalendarLayout.setHorizontalGroup(
             CalendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CalendarLayout.createSequentialGroup()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CalendarRoundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(63, 63, 63))
         );
         CalendarLayout.setVerticalGroup(
             CalendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roundedPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(CalendarRoundPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         swm_panel.add(swm);
         swm_panel.setBackground(new java.awt.Color(255, 255, 255));
 
-        roundedPanel2.setBackground(new java.awt.Color(198, 198, 198));
+        SearchTool.setBackground(null);
 
-        javax.swing.GroupLayout roundedPanel2Layout = new javax.swing.GroupLayout(roundedPanel2);
-        roundedPanel2.setLayout(roundedPanel2Layout);
-        roundedPanel2Layout.setHorizontalGroup(
-            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+        searchPanel.setBackground(new java.awt.Color(198, 198, 198));
+
+        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
+        searchPanel.setLayout(searchPanelLayout);
+        searchPanelLayout.setHorizontalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 413, Short.MAX_VALUE)
         );
-        roundedPanel2Layout.setVerticalGroup(
-            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 37, Short.MAX_VALUE)
+        searchPanelLayout.setVerticalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        roundedButton1.setText("roundedButton1");
-        roundedButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roundedButton1ActionPerformed(evt);
-            }
-        });
+        searchButton.setText("roundedButton1");
 
         javax.swing.GroupLayout SearchToolLayout = new javax.swing.GroupLayout(SearchTool);
         SearchTool.setLayout(SearchToolLayout);
         SearchToolLayout.setHorizontalGroup(
             SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchToolLayout.createSequentialGroup()
-                .addComponent(roundedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
         );
         SearchToolLayout.setVerticalGroup(
             SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(roundedButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(SearchToolLayout.createSequentialGroup()
+                .addGroup(SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchToolLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout upperPLayout = new javax.swing.GroupLayout(upperP);
@@ -246,90 +262,48 @@ public class AllJFrame extends javax.swing.JFrame {
 
         lowerP3.setBackground(new java.awt.Color(212, 235, 231));
 
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(200, 4000));
+        noteScroll.setBorder(null);
+        noteScroll.setPreferredSize(new java.awt.Dimension(200, 4000));
 
-        jPanel3.setBackground(new java.awt.Color(201, 228, 200));
+        noteDisplay.setBackground(new java.awt.Color(201, 228, 200));
+        noteDisplay.setLayout(new java.awt.GridLayout(1, 2));
+        noteScroll.setViewportView(noteDisplay);
 
-        roundedPanel7.setBackground(new java.awt.Color(193, 193, 193));
+        noteEditPanel.setBackground(new java.awt.Color(193, 193, 193));
 
-        javax.swing.GroupLayout roundedPanel7Layout = new javax.swing.GroupLayout(roundedPanel7);
-        roundedPanel7.setLayout(roundedPanel7Layout);
-        roundedPanel7Layout.setHorizontalGroup(
-            roundedPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        roundedPanel7Layout.setVerticalGroup(
-            roundedPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        roundedPanel9.setBackground(new java.awt.Color(193, 193, 193));
-
-        javax.swing.GroupLayout roundedPanel9Layout = new javax.swing.GroupLayout(roundedPanel9);
-        roundedPanel9.setLayout(roundedPanel9Layout);
-        roundedPanel9Layout.setHorizontalGroup(
-            roundedPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        roundedPanel9Layout.setVerticalGroup(
-            roundedPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(roundedPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(roundedPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roundedPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roundedPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(227, Short.MAX_VALUE))
-        );
-
-        jScrollPane1.setViewportView(jPanel3);
-
-        roundedPanel4.setBackground(new java.awt.Color(193, 193, 193));
-
-        javax.swing.GroupLayout roundedPanel4Layout = new javax.swing.GroupLayout(roundedPanel4);
-        roundedPanel4.setLayout(roundedPanel4Layout);
-        roundedPanel4Layout.setHorizontalGroup(
-            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout noteEditPanelLayout = new javax.swing.GroupLayout(noteEditPanel);
+        noteEditPanel.setLayout(noteEditPanelLayout);
+        noteEditPanelLayout.setHorizontalGroup(
+            noteEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        roundedPanel4Layout.setVerticalGroup(
-            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        noteEditPanelLayout.setVerticalGroup(
+            noteEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 266, Short.MAX_VALUE)
         );
 
-        circleButton1.setBackground(new java.awt.Color(193, 193, 193));
-        circleButton1.setForeground(new java.awt.Color(47, 41, 41));
-        circleButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        addButton.setBackground(new java.awt.Color(193, 193, 193));
+        addButton.setForeground(new java.awt.Color(47, 41, 41));
+        addButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout lowerP3Layout = new javax.swing.GroupLayout(lowerP3);
         lowerP3.setLayout(lowerP3Layout);
         lowerP3Layout.setHorizontalGroup(
             lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lowerP3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lowerP3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(circleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lowerP3Layout.createSequentialGroup()
-                        .addComponent(roundedPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(noteEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(10, 10, 10)))
                 .addContainerGap())
         );
@@ -339,10 +313,10 @@ public class AllJFrame extends javax.swing.JFrame {
                 .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lowerP3Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(circleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(noteEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -384,9 +358,26 @@ public class AllJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void roundedButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundedButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roundedButton1ActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        round += 1;
+        TaskReal newTask = new TaskReal();
+        JPanel clearCol = new JPanel();
+        clearCol.setBackground(null);
+        panel.add(newTask);
+        panel.add(clearCol);
+        clearCol.add(new EditButton());
+        panel.revalidate();
+        panel.repaint();
+        if (round >= 2) {
+            numRow +=1 ;
+            panel.setLayout(new GridLayout(numRow, numCol));
+            System.out.println("numRow : "+numRow + ", numCol : "+numCol);
+        }
+        else{
+            System.out.println(numRow);
+        }
+        this.pack();
+    }//GEN-LAST:event_addButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,23 +417,21 @@ public class AllJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Calendar;
+    private decorClass.RoundedPanel CalendarRoundPanel;
     private javax.swing.JPanel SearchTool;
-    private decorClass.CircleButton circleButton1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private decorClass.CircleButton addButton;
     private javax.swing.JPanel leftP;
     private javax.swing.JPanel lowerP3;
+    private javax.swing.JPanel noteDisplay;
+    private decorClass.RoundedPanel noteEditPanel;
+    private javax.swing.JScrollPane noteScroll;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel rightP;
-    private decorClass.RoundedButton roundedButton1;
-    private decorClass.RoundedPanel roundedPanel1;
-    private decorClass.RoundedPanel roundedPanel2;
-    private decorClass.RoundedPanel roundedPanel3;
-    private decorClass.RoundedPanel roundedPanel4;
-    private decorClass.RoundedPanel roundedPanel7;
-    private decorClass.RoundedPanel roundedPanel9;
+    private decorClass.RoundedButton searchButton;
+    private decorClass.RoundedPanel searchPanel;
     private javax.swing.JPanel swm_panel;
     private javax.swing.JLabel taskLabel;
+    private decorClass.RoundedPanel timepanel;
     private javax.swing.JPanel timerPanel;
     private javax.swing.JPanel todoPanel;
     private javax.swing.JScrollPane todoScroll;
