@@ -1,12 +1,16 @@
 package javaant;
 
+import decorClass.RoundedButton;
+import decorClass.RoundedPanel;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.util.*;
 public class StudyWithMe_P extends JPanel implements ActionListener{
-    private JPanel pBase, pUpper, pText, pButton, pPlayPause, mTime, pMName1, pMName2;
+    JPanel pBase;
+    private JPanel pAni, pUpper, pText, pPlayPause, mTime, pMName1, pMName2;
+    private RoundedPanel pButton;
     private JLabel displayA;
     private RoundedButton bPlay, bPause, bNext, bBack, bLoop;
     
@@ -18,41 +22,55 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     private static JLabel displayPName = new JLabel("nothing is being played");
     private static JLabel mPass = new JLabel("00:00");
     private static JLabel mAll = new JLabel("/xx:xx");
-    private ControlMusic control;
+    private ControlMusic_P control;
     static boolean isLoop = false;
     //private ArrayList<String> musicList;
     //private String thisDir;
     Random random = new Random();
     private int musicI = 0;
     
+    public JPanel OpaquePanel(JPanel jp) {
+        jp = new JPanel();
+        jp.setOpaque(true);
+        return jp;
+    }
     
     public StudyWithMe_P() {
     
-    control = new ControlMusic();
+    control = new ControlMusic_P();
     
     //**GUI
-    pBase = new JPanel(new BorderLayout());
+    setLayout(new BorderLayout());
+    setOpaque(false);
     //pBase.setBackground(Color.WHITE);
     bd = BorderFactory.createEmptyBorder(10, 10, 10, 10);
     setBorder(bd);
     try{
         animated = new ImageIcon(getClass().getResource("/javaant/Icon/tester150px.gif"));
-        displayA = new JLabel(animated);
+        /*Image img = animated.getImage();
+        int size = pBase.getHeight();
+        Image scaled = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        animated = new ImageIcon(scaled);*/
+        displayA = new JLabel();
+        displayA.setIcon(animated);
     } catch(Exception e) {
         displayA = new JLabel("Image not found TT");
     }
 
     //layout
-    add(pBase);
-    
+    pAni = new JPanel();
+    pAni.setOpaque(false);
+    pAni.add(displayA);
     pUpper = new JPanel(new BorderLayout());
     //pUpper.setBackground(Color.WHITE);
-    pText = new JPanel(new GridLayout(3, 1));
+    pText = new JPanel(new GridLayout(2, 1));
     pText.setBorder(bd);
-    pBase.add(pUpper, BorderLayout.CENTER);
+    add(pUpper, BorderLayout.CENTER);
     //displayA.setBorder(bd);
-    pUpper.add(displayA, BorderLayout.CENTER);
+    pUpper.add(pAni, BorderLayout.CENTER);
     pUpper.add(pText, BorderLayout.SOUTH);
+    pUpper.setOpaque(false);
+    pText.setOpaque(false);
     
     pMName1 = new JPanel();
     pMName2 = new JPanel();
@@ -62,17 +80,20 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     displayPName.setFont(new Font("Comic Sans MS", 0, 15));
     mPass.setFont(new Font("Comic Sans MS", 0, 12));
     mAll.setFont(new Font("Comic Sans MS", 0, 12));
+    pMName1.setOpaque(false);
+    pMName2.setOpaque(false);
     
     mTime = new JPanel();
     mTime.add(mPass);
     mTime.add(mAll);
     pText.add(pMName1);
     pText.add(pMName2);
-    pText.add(mTime);
+    //pText.add(mTime);
     //pText.add(vocalistName);
     
-    pButton = new JPanel();
-    pBase.add(pButton, BorderLayout.SOUTH);
+    pButton = new RoundedPanel();
+    pButton.setBackground(new Color(211, 235, 221));
+    add(pButton, BorderLayout.SOUTH);
     pPlayPause = new JPanel(new CardLayout());
     
     bBack = ControlButton(bBack, 50, "/javaant/Icon/backward.png");
@@ -92,7 +113,7 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
     cardLayout.show(pPlayPause, "bPlay");
     //pPlayPause.show();
-    
+
     //action
     bBack.addActionListener(this);
     bPlay.addActionListener(this);
@@ -105,7 +126,7 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     //Square Button Pattern
     private RoundedButton ControlButton(RoundedButton b, int size, String imagePath) {
         Dimension dButton = new Dimension(size, size);
-        b = new RoundedButton(30, 30);
+        b = new RoundedButton(20, 20);
         //b.setBorder(new RoundCorner(100));
         b.setBackground(Color.WHITE);
         b.setPreferredSize(dButton);
@@ -201,8 +222,5 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
         String[] splitName = musicName.split(" - ", 2);
         displayName.setText(splitName[1]);
         displayPName.setText(splitName[0]);
-    }
-    public static void main(String[] args) {
-        StudyWithMe_P a = new StudyWithMe_P();
     }
 }
