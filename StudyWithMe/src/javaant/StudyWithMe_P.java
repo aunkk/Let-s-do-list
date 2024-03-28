@@ -4,18 +4,19 @@ import decorClass.RoundedButton;
 import decorClass.RoundedPanel;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.util.*;
 public class StudyWithMe_P extends JPanel implements ActionListener{
-    JPanel pBase;
     private JPanel pAni, pUpper, pText, pPlayPause, mTime, pMName1, pMName2;
     private RoundedPanel pButton;
     private JLabel displayA;
     private RoundedButton bPlay, bPause, bNext, bBack, bLoop;
     
+    private int panelSize;
     private ImageIcon animated;
-    private Border bd;
+    //private Border bd;
     
     //music setup
     private static JLabel displayName = new JLabel("----------");
@@ -24,33 +25,45 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     private static JLabel mAll = new JLabel("/xx:xx");
     private ControlMusic_P control;
     static boolean isLoop = false;
-    //private ArrayList<String> musicList;
-    //private String thisDir;
     Random random = new Random();
     private int musicI = 0;
     
-    public JPanel OpaquePanel(JPanel jp) {
+    /*public JPanel OpaquePanel(JPanel jp) {
         jp = new JPanel();
         jp.setOpaque(true);
         return jp;
-    }
+    }*/
     
     public StudyWithMe_P() {
-    
     control = new ControlMusic_P();
     
     //**GUI
     setLayout(new BorderLayout());
     setOpaque(false);
-    //pBase.setBackground(Color.WHITE);
-    bd = BorderFactory.createEmptyBorder(10, 10, 10, 10);
-    setBorder(bd);
+    //bd = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+    //setBorder(bd);
+    addComponentListener(new ComponentAdapter(){
+        @Override
+        public void componentResized(ComponentEvent e) {
+            Dimension size = getSize();
+            int width = size.width;
+            int height = size.height;
+            System.out.println("Width: " + width + ", Height: " + height);
+            panelSize = width;
+        }
+    }
+    );
+    
     try{
-        animated = new ImageIcon(getClass().getResource("/javaant/Icon/tester150px.gif"));
-        /*Image img = animated.getImage();
-        int size = pBase.getHeight();
-        Image scaled = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        animated = new ImageIcon(scaled);*/
+        animated = new ImageIcon(getClass().getResource("/javaant/Icon/studywithduck120px.gif"));
+       /*
+        Image ori = animated.getImage();
+        BufferedImage resizedI = new BufferedImage(130, 130, BufferedImage.TYPE_INT_ARGB);Graphics2D g2d = resizedI.createGraphics();
+        g2d.drawImage(ori, 0, 0, 130, 130, null);
+        //g2d.dispose();
+        
+        animated = new ImageIcon(resizedI);
+      */
         displayA = new JLabel();
         displayA.setIcon(animated);
     } catch(Exception e) {
@@ -59,15 +72,15 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
 
     //layout
     pAni = new JPanel();
+    pAni.setPreferredSize(new Dimension(120, 115));
     pAni.setOpaque(false);
     pAni.add(displayA);
     pUpper = new JPanel(new BorderLayout());
-    //pUpper.setBackground(Color.WHITE);
     pText = new JPanel(new GridLayout(2, 1));
-    pText.setBorder(bd);
+    //pText.setBorder(bd);
     add(pUpper, BorderLayout.CENTER);
     //displayA.setBorder(bd);
-    pUpper.add(pAni, BorderLayout.CENTER);
+    pUpper.add(pAni, BorderLayout.NORTH);
     pUpper.add(pText, BorderLayout.SOUTH);
     pUpper.setOpaque(false);
     pText.setOpaque(false);
@@ -76,12 +89,14 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     pMName2 = new JPanel();
     pMName1.add(displayName);
     pMName2.add(displayPName);
-    displayName.setFont(new Font("Comic Sans MS", 0, 17));
-    displayPName.setFont(new Font("Comic Sans MS", 0, 15));
-    mPass.setFont(new Font("Comic Sans MS", 0, 12));
-    mAll.setFont(new Font("Comic Sans MS", 0, 12));
+    displayName.setFont(new Font("Comic Sans MS", 0, 14));
+    displayPName.setFont(new Font("Comic Sans MS", 0, 12));
+    //mPass.setFont(new Font("Comic Sans MS", 0, 10));
+    //mAll.setFont(new Font("Comic Sans MS", 0, 10));
     pMName1.setOpaque(false);
     pMName2.setOpaque(false);
+    pMName1.setPreferredSize(new Dimension(100, 23));
+    pMName2.setPreferredSize(new Dimension(100, 21));
     
     mTime = new JPanel();
     mTime.add(mPass);
@@ -96,11 +111,11 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     add(pButton, BorderLayout.SOUTH);
     pPlayPause = new JPanel(new CardLayout());
     
-    bBack = ControlButton(bBack, 50, "/javaant/Icon/backward.png");
-    bPlay = ControlButton(bPlay, 50, "/javaant/Icon/play.png");
-    bPause = ControlButton(bPlay, 50, "/javaant/Icon/pause.png");
-    bNext = ControlButton(bNext, 50, "/javaant/Icon/next.png");
-    bLoop = ControlButton(bLoop, 50, "/javaant/Icon/loop.png");
+    bBack = ControlButton(bBack, 30, "/javaant/Icon/backward.png");
+    bPlay = ControlButton(bPlay, 30, "/javaant/Icon/play.png");
+    bPause = ControlButton(bPlay, 30, "/javaant/Icon/pause.png");
+    bNext = ControlButton(bNext, 30, "/javaant/Icon/next.png");
+    bLoop = ControlButton(bLoop, 30, "/javaant/Icon/loop.png");
     
     pButton.add(bBack);
     pButton.add(pPlayPause);
@@ -126,14 +141,14 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     //Square Button Pattern
     private RoundedButton ControlButton(RoundedButton b, int size, String imagePath) {
         Dimension dButton = new Dimension(size, size);
-        b = new RoundedButton(20, 20);
+        b = new RoundedButton();
         //b.setBorder(new RoundCorner(100));
         b.setBackground(Color.WHITE);
         b.setPreferredSize(dButton);
         try{
             ImageIcon original = new ImageIcon(getClass().getResource(imagePath));
             Image img = original.getImage();
-            Image scaled = img.getScaledInstance(size-20, size-20, Image.SCALE_SMOOTH);
+            Image scaled = img.getScaledInstance(size-5, size-5, Image.SCALE_SMOOTH);
             ImageIcon scaledIcon = new ImageIcon(scaled);
             b.setIcon(scaledIcon);
         } catch(Exception ex){
