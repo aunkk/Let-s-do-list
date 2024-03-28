@@ -6,7 +6,6 @@ package MainSWM;
 
 import decorClass.EditButton;
 import decorClass.RoundedPanel;
-import decorClass.TaskReal;
 import java.awt.*;
 import javaant.StudyWithMe_P;
 import javax.swing.JPanel;
