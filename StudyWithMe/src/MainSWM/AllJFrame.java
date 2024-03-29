@@ -4,11 +4,9 @@
  */
 package MainSWM;
 
-import decorClass.EditButton;
-import decorClass.RoundedPanel;
+import decorClass.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import javaant.StudyWithMe_P;
 import javax.swing.*;
 
@@ -140,7 +138,7 @@ public class AllJFrame extends JFrame implements MouseListener{
                 .addGap(30, 30, 30)
                 .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
-            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         leftPLayout.setVerticalGroup(
             leftPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,9 +216,7 @@ public class AllJFrame extends JFrame implements MouseListener{
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
         );
 
-        jScrollPane1.setBackground(null);
         jScrollPane1.setBorder(null);
-        jScrollPane1.setForeground(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(224, 199));
@@ -361,26 +357,59 @@ public class AllJFrame extends JFrame implements MouseListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        round += 1;
-        TaskPattern task = new TaskPattern();
-//        JPanel clearCol = new JPanel();
-//        clearCol.setBackground(null);
-        panel.add(task);
-//        panel.add(new JPanel());
-        
-    if (round > 1) {
-        numRow = round ;
-        panel.setLayout(new GridLayout(numRow, numCol));
-        System.out.println("numRow : "+numRow + ", numCol : "+numCol);
-    }
-    else{
-        System.out.println(numRow);
-    }
-    panel.revalidate();
-    panel.repaint();
-    this.pack();
-    }//GEN-LAST:event_addButtonActionPerformed
+        JPanel selectAdd = new JPanel();
+        selectAdd.setLayout(new GridLayout(2, 1)); // 2 rows, 1 column
 
+        // Create buttons
+        JButton addTask = new JButton("add Task");
+        addTask.setFont(new Font("Comic Sans MS", 0, 16));
+        addTask.setBackground(Color.WHITE);
+        addTask.addActionListener((ActionEvent e) -> {
+            round += 1;
+            TaskPattern task = new TaskPattern();
+            panel.add(task);
+            
+            if (round > 1) {
+                numRow = round ;
+                panel.setLayout(new GridLayout(numRow, numCol));
+                System.out.println("numRow : "+numRow + ", numCol : "+numCol);
+            }
+            else{
+                System.out.println(numRow);
+            }
+            panel.revalidate();
+            panel.repaint();
+            
+            Window window = SwingUtilities.getWindowAncestor(addTask);
+            if (window != null) {
+                window.dispose();
+            }
+        });
+        selectAdd.add(addTask);
+
+        JButton addNote = new JButton("add Note");
+        addNote.setFont(new Font("Comic Sans MS", 0, 16));
+        addNote.setBackground(Color.WHITE);
+        addNote.addActionListener((ActionEvent e) -> {
+            
+            //add note detail here
+            
+            Window window = SwingUtilities.getWindowAncestor(addNote);
+            if (window != null) {
+                window.dispose();
+            }
+        });
+        selectAdd.add(addNote);
+
+        JDialog dialog = new JDialog(this, "Add...", true);
+        dialog.add(selectAdd);
+
+        dialog.setLocationRelativeTo(null);
+
+        dialog.setSize(200, 100);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_addButtonActionPerformed
+    
     /**
      * @param args the command line arguments
      */
