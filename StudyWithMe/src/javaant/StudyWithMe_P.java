@@ -95,21 +95,21 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     //mAll.setFont(new Font("Comic Sans MS", 0, 10));
     pMName1.setOpaque(false);
     pMName2.setOpaque(false);
-    pMName1.setPreferredSize(new Dimension(100, 23));
-    pMName2.setPreferredSize(new Dimension(100, 21));
     
     mTime = new JPanel();
     mTime.add(mPass);
     mTime.add(mAll);
     pText.add(pMName1);
     pText.add(pMName2);
+    pText.setPreferredSize(new Dimension(100, 45));
     //pText.add(mTime);
     //pText.add(vocalistName);
     
     pButton = new RoundedPanel();
-    pButton.setBackground(new Color(211, 235, 221));
+    pButton.setBackground(new Color(160, 198, 190));
     add(pButton, BorderLayout.SOUTH);
     pPlayPause = new JPanel(new CardLayout());
+    pPlayPause.setOpaque(false);
     
     bBack = ControlButton(bBack, 30, "/javaant/Icon/backward.png");
     bPlay = ControlButton(bPlay, 30, "/javaant/Icon/play.png");
