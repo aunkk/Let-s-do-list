@@ -7,23 +7,26 @@ package MainSWM;
 import decorClass.EditButton;
 import decorClass.RoundedPanel;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javaant.StudyWithMe_P;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
  * @author Admin
  */
-public class AllJFrame extends javax.swing.JFrame {
+public class AllJFrame extends JFrame implements MouseListener{
     int round = 0;
     int numRow = 1;
-    int numCol = 2;
+    int numCol = 1;
+    public EditButton editButton;
     /**
      * Creates new form NewJFrame
      */
     public AllJFrame() {
         initComponents();
-        
+        editButton = new EditButton();
     }
 
     /**
@@ -100,6 +103,7 @@ public class AllJFrame extends javax.swing.JFrame {
         todoPanel.setBackground(new java.awt.Color(212, 227, 235));
 
         todoScroll.setBorder(null);
+        todoScroll.setMinimumSize(null);
 
         panel.setBackground(new java.awt.Color(160, 198, 190));
         panel.setLayout(new java.awt.GridLayout(numRow, numCol));
@@ -111,7 +115,7 @@ public class AllJFrame extends javax.swing.JFrame {
             todoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(todoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(todoScroll)
+                .addComponent(todoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         todoPanelLayout.setVerticalGroup(
@@ -134,9 +138,9 @@ public class AllJFrame extends javax.swing.JFrame {
             .addComponent(timerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(leftPLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
-            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
         );
         leftPLayout.setVerticalGroup(
             leftPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,8 +157,6 @@ public class AllJFrame extends javax.swing.JFrame {
         rightP.setForeground(new java.awt.Color(255, 255, 255));
 
         upperP.setBackground(new java.awt.Color(211, 235, 221));
-
-        Calendar.setBackground(null);
 
         CalendarRoundPanel.setBackground(new java.awt.Color(198, 198, 198));
 
@@ -182,15 +184,13 @@ public class AllJFrame extends javax.swing.JFrame {
             .addComponent(CalendarRoundPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        SearchTool.setBackground(null);
-
         searchPanel.setBackground(new java.awt.Color(198, 198, 198));
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGap(0, 314, Short.MAX_VALUE)
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,22 +206,21 @@ public class AllJFrame extends javax.swing.JFrame {
             SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchToolLayout.createSequentialGroup()
                 .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         SearchToolLayout.setVerticalGroup(
             SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SearchToolLayout.createSequentialGroup()
-                .addGroup(SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchToolLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(SearchToolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(SearchToolLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
         );
 
+        jScrollPane1.setBackground(null);
         jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(224, 199));
@@ -239,7 +238,7 @@ public class AllJFrame extends javax.swing.JFrame {
                 .addGroup(upperPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SearchTool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -363,23 +362,14 @@ public class AllJFrame extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         round += 1;
-    TaskReal newTask = new TaskReal();
-    JPanel clearCol = new JPanel();
-    JPanel clearCol2 = new JPanel();
-    JPanel clearCol3 = new JPanel();
-    JPanel editPanel = new JPanel();
-    editPanel.setBackground(null);
-    clearCol2.setBackground(new Color(198,227,193));
-    clearCol3.setBackground(new Color(198,227,193));
-    clearCol.setBackground(null);
-    panel.add(newTask);
-    panel.add(clearCol);
-    editPanel.add(new EditButton());
-    clearCol.setLayout(new GridLayout(1, 3));
-    clearCol.add(clearCol2); clearCol.add(clearCol3); clearCol.add(editPanel);
-    
-    if (round >= 2) {
-        numRow +=1 ;
+        TaskPattern task = new TaskPattern();
+//        JPanel clearCol = new JPanel();
+//        clearCol.setBackground(null);
+        panel.add(task);
+//        panel.add(new JPanel());
+        
+    if (round > 1) {
+        numRow = round ;
         panel.setLayout(new GridLayout(numRow, numCol));
         System.out.println("numRow : "+numRow + ", numCol : "+numCol);
     }
@@ -428,4 +418,29 @@ public class AllJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane todoScroll;
     private javax.swing.JPanel upperP;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
