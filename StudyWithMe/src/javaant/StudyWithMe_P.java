@@ -9,10 +9,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.util.*;
 public class StudyWithMe_P extends JPanel implements ActionListener{
-    private JPanel pAni, pUpper, pText, pPlayPause, mTime, pMName1, pMName2;
+    private JPanel pAni, pUpper, pText, pPlayPause, pMName1, pMName2;
     private RoundedPanel pButton;
     private JLabel displayA;
-    private RoundedButton bPlay, bPause, bNext, bBack, bLoop;
+    private ControlB bPlay, bPause, bNext, bBack, bLoop;
     
     private int panelSize;
     private ImageIcon animated;
@@ -21,8 +21,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     //music setup
     private static JLabel displayName = new JLabel("----------");
     private static JLabel displayPName = new JLabel("nothing is being played");
-    private static JLabel mPass = new JLabel("00:00");
-    private static JLabel mAll = new JLabel("/xx:xx");
     private ControlMusic_P control;
     static boolean isLoop = false;
     Random random = new Random();
@@ -91,19 +89,13 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     pMName2.add(displayPName);
     displayName.setFont(new Font("Comic Sans MS", 0, 14));
     displayPName.setFont(new Font("Comic Sans MS", 0, 12));
-    //mPass.setFont(new Font("Comic Sans MS", 0, 10));
-    //mAll.setFont(new Font("Comic Sans MS", 0, 10));
     pMName1.setOpaque(false);
     pMName2.setOpaque(false);
     
-    mTime = new JPanel();
-    mTime.add(mPass);
-    mTime.add(mAll);
+
     pText.add(pMName1);
     pText.add(pMName2);
     pText.setPreferredSize(new Dimension(100, 45));
-    //pText.add(mTime);
-    //pText.add(vocalistName);
     
     pButton = new RoundedPanel();
     pButton.setBackground(new Color(160, 198, 190));
@@ -111,11 +103,11 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     pPlayPause = new JPanel(new CardLayout());
     pPlayPause.setOpaque(false);
     
-    bBack = ControlButton(bBack, 30, "/javaant/Icon/backward.png");
-    bPlay = ControlButton(bPlay, 30, "/javaant/Icon/play.png");
-    bPause = ControlButton(bPlay, 30, "/javaant/Icon/pause.png");
-    bNext = ControlButton(bNext, 30, "/javaant/Icon/next.png");
-    bLoop = ControlButton(bLoop, 30, "/javaant/Icon/loop.png");
+    bBack = new ControlB(30, "/javaant/Icon/backward.png");
+    bPlay = new ControlB(30, "/javaant/Icon/play.png");
+    bPause = new ControlB(30, "/javaant/Icon/pause.png");
+    bNext = new ControlB(30, "/javaant/Icon/next.png");
+    bLoop = new ControlB(30, "/javaant/Icon/loop.png");
     
     pButton.add(bBack);
     pButton.add(pPlayPause);
@@ -136,25 +128,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     bNext.addActionListener(this);
     bLoop.addActionListener(this);
     
-    }
-    
-    //Square Button Pattern
-    private RoundedButton ControlButton(RoundedButton b, int size, String imagePath) {
-        Dimension dButton = new Dimension(size, size);
-        b = new RoundedButton();
-        //b.setBorder(new RoundCorner(100));
-        b.setBackground(Color.WHITE);
-        b.setPreferredSize(dButton);
-        try{
-            ImageIcon original = new ImageIcon(getClass().getResource(imagePath));
-            Image img = original.getImage();
-            Image scaled = img.getScaledInstance(size-5, size-5, Image.SCALE_SMOOTH);
-            ImageIcon scaledIcon = new ImageIcon(scaled);
-            b.setIcon(scaledIcon);
-        } catch(Exception ex){
-            b.setText(b.getName());
-        }
-        return b;
     }
 
     @Override
@@ -181,8 +154,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
             }
         }
         else if (e.getSource() == bPlay) {
-            //**testing
-            //random 0-3
             System.out.println("play..");
             if ((control.player == null)||(control.player.isComplete())) {
                 do
@@ -205,24 +176,12 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
             
         }
         else if (e.getSource() == bBack){
-            /*.out.println("previous music");
-            control.PauseMusic();
-            if(musicI == 0) {
-                this.musicI = random.nextInt(control.musicNum);
-            }
-            else {musicI -= 1;}*/
             control.PreviousMusic();
             cardLayout.show(pPlayPause, "bPause"); 
             //displayPlaying();
             
         }
         else if (e.getSource() == bNext){
-            /*System.out.println("next music");
-            control.PauseMusic();
-            if(musicI == control.musicNum-1) {
-                this.musicI = random.nextInt(control.musicNum);
-            }
-            else {musicI += 1;}*/
             control.NextMusic();
             cardLayout.show(pPlayPause, "bPause"); 
             //displayPlaying();
