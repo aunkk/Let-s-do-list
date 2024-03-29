@@ -36,7 +36,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SUN"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
       <Events>
@@ -53,7 +53,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="MON"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -67,7 +67,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="TUE"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -81,7 +81,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="WED"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -95,7 +95,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="THU"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -109,7 +109,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="FRI"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -123,7 +123,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SAT"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="12" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -136,7 +136,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -149,7 +149,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -162,7 +162,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -175,7 +175,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -188,7 +188,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -201,7 +201,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -214,7 +214,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -227,7 +227,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -240,7 +240,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -253,7 +253,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -266,7 +266,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -279,7 +279,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -292,7 +292,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -305,7 +305,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -318,7 +318,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -331,7 +331,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -344,7 +344,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -357,7 +357,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -370,7 +370,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -383,7 +383,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -396,7 +396,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -409,7 +409,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -422,7 +422,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -435,7 +435,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -448,7 +448,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -461,7 +461,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -474,7 +474,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -487,7 +487,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -500,7 +500,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -513,7 +513,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -526,7 +526,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -539,7 +539,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -552,7 +552,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -565,7 +565,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -578,7 +578,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -591,7 +591,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -604,7 +604,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -617,7 +617,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -630,7 +630,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -643,7 +643,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -656,7 +656,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -669,7 +669,7 @@
           <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Comic Sans MS" size="11" style="1"/>
         </Property>
       </Properties>
     </Component>

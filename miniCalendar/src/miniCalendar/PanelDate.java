@@ -115,7 +115,7 @@ public class PanelDate extends javax.swing.JLayeredPane {
         SUN.setBackground(new java.awt.Color(30, 30, 30));
         SUN.setForeground(new java.awt.Color(30, 30, 30));
         SUN.setText("SUN");
-        SUN.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        SUN.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         SUN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SUNActionPerformed(evt);
@@ -126,247 +126,247 @@ public class PanelDate extends javax.swing.JLayeredPane {
         MON.setBackground(new java.awt.Color(30, 30, 30));
         MON.setForeground(new java.awt.Color(30, 30, 30));
         MON.setText("MON");
-        MON.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        MON.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(MON);
 
         TUE.setBackground(new java.awt.Color(30, 30, 30));
         TUE.setForeground(new java.awt.Color(30, 30, 30));
         TUE.setText("TUE");
-        TUE.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TUE.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(TUE);
 
         WED.setBackground(new java.awt.Color(30, 30, 30));
         WED.setForeground(new java.awt.Color(30, 30, 30));
         WED.setText("WED");
-        WED.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        WED.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(WED);
 
         THU.setBackground(new java.awt.Color(30, 30, 30));
         THU.setForeground(new java.awt.Color(30, 30, 30));
         THU.setText("THU");
-        THU.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        THU.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(THU);
 
         FRI.setBackground(new java.awt.Color(30, 30, 30));
         FRI.setForeground(new java.awt.Color(30, 30, 30));
         FRI.setText("FRI");
-        FRI.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        FRI.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(FRI);
 
         SAT.setBackground(new java.awt.Color(30, 30, 30));
         SAT.setForeground(new java.awt.Color(30, 30, 30));
         SAT.setText("SAT");
-        SAT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        SAT.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         add(SAT);
 
         cells8.setBackground(new java.awt.Color(30, 30, 30));
         cells8.setForeground(new java.awt.Color(30, 30, 30));
-        cells8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells8.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells8);
 
         cells9.setBackground(new java.awt.Color(30, 30, 30));
         cells9.setForeground(new java.awt.Color(30, 30, 30));
-        cells9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells9.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells9);
 
         cells10.setBackground(new java.awt.Color(30, 30, 30));
         cells10.setForeground(new java.awt.Color(30, 30, 30));
-        cells10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells10.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells10);
 
         cells11.setBackground(new java.awt.Color(30, 30, 30));
         cells11.setForeground(new java.awt.Color(30, 30, 30));
-        cells11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells11.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells11);
 
         cells12.setBackground(new java.awt.Color(30, 30, 30));
         cells12.setForeground(new java.awt.Color(30, 30, 30));
-        cells12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells12.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells12);
 
         cells13.setBackground(new java.awt.Color(30, 30, 30));
         cells13.setForeground(new java.awt.Color(30, 30, 30));
-        cells13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells13.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells13);
 
         cells14.setBackground(new java.awt.Color(30, 30, 30));
         cells14.setForeground(new java.awt.Color(30, 30, 30));
-        cells14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells14.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells14);
 
         cells15.setBackground(new java.awt.Color(30, 30, 30));
         cells15.setForeground(new java.awt.Color(30, 30, 30));
-        cells15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells15.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells15);
 
         cells16.setBackground(new java.awt.Color(30, 30, 30));
         cells16.setForeground(new java.awt.Color(30, 30, 30));
-        cells16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells16.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells16);
 
         cells17.setBackground(new java.awt.Color(30, 30, 30));
         cells17.setForeground(new java.awt.Color(30, 30, 30));
-        cells17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells17.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells17);
 
         cells18.setBackground(new java.awt.Color(30, 30, 30));
         cells18.setForeground(new java.awt.Color(30, 30, 30));
-        cells18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells18.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells18);
 
         cells19.setBackground(new java.awt.Color(30, 30, 30));
         cells19.setForeground(new java.awt.Color(30, 30, 30));
-        cells19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells19.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells19);
 
         cells20.setBackground(new java.awt.Color(30, 30, 30));
         cells20.setForeground(new java.awt.Color(30, 30, 30));
-        cells20.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells20.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells20);
 
         cells21.setBackground(new java.awt.Color(30, 30, 30));
         cells21.setForeground(new java.awt.Color(30, 30, 30));
-        cells21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells21.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells21);
 
         cells22.setBackground(new java.awt.Color(30, 30, 30));
         cells22.setForeground(new java.awt.Color(30, 30, 30));
-        cells22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells22.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells22);
 
         cells23.setBackground(new java.awt.Color(30, 30, 30));
         cells23.setForeground(new java.awt.Color(30, 30, 30));
-        cells23.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells23.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells23);
 
         cells24.setBackground(new java.awt.Color(30, 30, 30));
         cells24.setForeground(new java.awt.Color(30, 30, 30));
-        cells24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells24.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells24);
 
         cells25.setBackground(new java.awt.Color(30, 30, 30));
         cells25.setForeground(new java.awt.Color(30, 30, 30));
-        cells25.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells25.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells25);
 
         cells26.setBackground(new java.awt.Color(30, 30, 30));
         cells26.setForeground(new java.awt.Color(30, 30, 30));
-        cells26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells26.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells26);
 
         cells27.setBackground(new java.awt.Color(30, 30, 30));
         cells27.setForeground(new java.awt.Color(30, 30, 30));
-        cells27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells27.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells27);
 
         cells28.setBackground(new java.awt.Color(30, 30, 30));
         cells28.setForeground(new java.awt.Color(30, 30, 30));
-        cells28.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells28.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells28);
 
         cells29.setBackground(new java.awt.Color(30, 30, 30));
         cells29.setForeground(new java.awt.Color(30, 30, 30));
-        cells29.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells29.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells29);
 
         cells30.setBackground(new java.awt.Color(30, 30, 30));
         cells30.setForeground(new java.awt.Color(30, 30, 30));
-        cells30.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells30.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells30);
 
         cells31.setBackground(new java.awt.Color(30, 30, 30));
         cells31.setForeground(new java.awt.Color(30, 30, 30));
-        cells31.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells31.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells31);
 
         cells32.setBackground(new java.awt.Color(30, 30, 30));
         cells32.setForeground(new java.awt.Color(30, 30, 30));
-        cells32.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells32.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells32);
 
         cells33.setBackground(new java.awt.Color(30, 30, 30));
         cells33.setForeground(new java.awt.Color(30, 30, 30));
-        cells33.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells33.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells33);
 
         cells34.setBackground(new java.awt.Color(30, 30, 30));
         cells34.setForeground(new java.awt.Color(30, 30, 30));
-        cells34.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells34.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells34);
 
         cells35.setBackground(new java.awt.Color(30, 30, 30));
         cells35.setForeground(new java.awt.Color(30, 30, 30));
-        cells35.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells35.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells35);
 
         cells36.setBackground(new java.awt.Color(30, 30, 30));
         cells36.setForeground(new java.awt.Color(30, 30, 30));
-        cells36.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells36.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells36);
 
         cells37.setBackground(new java.awt.Color(30, 30, 30));
         cells37.setForeground(new java.awt.Color(30, 30, 30));
-        cells37.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells37.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells37);
 
         cells38.setBackground(new java.awt.Color(30, 30, 30));
         cells38.setForeground(new java.awt.Color(30, 30, 30));
-        cells38.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells38.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells38);
 
         cells39.setBackground(new java.awt.Color(30, 30, 30));
         cells39.setForeground(new java.awt.Color(30, 30, 30));
-        cells39.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells39.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells39);
 
         cells40.setBackground(new java.awt.Color(30, 30, 30));
         cells40.setForeground(new java.awt.Color(30, 30, 30));
-        cells40.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells40.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells40);
 
         cells41.setBackground(new java.awt.Color(30, 30, 30));
         cells41.setForeground(new java.awt.Color(30, 30, 30));
-        cells41.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells41.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells41);
 
         cells42.setBackground(new java.awt.Color(30, 30, 30));
         cells42.setForeground(new java.awt.Color(30, 30, 30));
-        cells42.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells42.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells42);
 
         cells43.setBackground(new java.awt.Color(30, 30, 30));
         cells43.setForeground(new java.awt.Color(30, 30, 30));
-        cells43.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells43.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells43);
 
         cells44.setBackground(new java.awt.Color(30, 30, 30));
         cells44.setForeground(new java.awt.Color(30, 30, 30));
-        cells44.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells44.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells44);
 
         cells45.setBackground(new java.awt.Color(30, 30, 30));
         cells45.setForeground(new java.awt.Color(30, 30, 30));
-        cells45.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells45.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells45);
 
         cells46.setBackground(new java.awt.Color(30, 30, 30));
         cells46.setForeground(new java.awt.Color(30, 30, 30));
-        cells46.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells46.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells46);
 
         cells47.setBackground(new java.awt.Color(30, 30, 30));
         cells47.setForeground(new java.awt.Color(30, 30, 30));
-        cells47.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells47.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells47);
 
         cells48.setBackground(new java.awt.Color(30, 30, 30));
         cells48.setForeground(new java.awt.Color(30, 30, 30));
-        cells48.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells48.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells48);
 
         cells49.setBackground(new java.awt.Color(30, 30, 30));
         cells49.setForeground(new java.awt.Color(30, 30, 30));
-        cells49.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cells49.setFont(new java.awt.Font("Comic Sans MS", 1, 11)); // NOI18N
         add(cells49);
     }// </editor-fold>//GEN-END:initComponents
 
