@@ -1,1 +1,2 @@
-ทำการลาก JDateChooser ลงในหน้าลากวาง Swing Controls ของโปรเเกรม Apacpe Netbeans 
+เปิด Swing GUI forms ทำการลาก JDateChooser  ลงใน Palette ในส่วนของ Swing Controls Tool  หน้าลากวาง  ของโปรเเกรม Apacpe Netbeans 
+(ถ้าหาหน้าต่าง Palette ไม่เจอ ให้คลิ๊ก manubar window -> IDE Tools -> Palette)
