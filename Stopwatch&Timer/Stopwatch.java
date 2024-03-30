@@ -1,8 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.border.BevelBorder;
 
-public class Stopwatch extends JPanel implements ActionListener{
+public class Stopwatch extends JPanel implements ActionListener, MouseListener{
     private StopwatchLabel timeLableHr, timeLableMin, timeLableSec,
             timeLableHr2, timeLableMin2, timeLableSec2;
     private JLabel colon1, colon2, colon3, colon4, name;
@@ -11,7 +12,8 @@ public class Stopwatch extends JPanel implements ActionListener{
     private RoundedButton btnStart, btnEdit, btnReset, btnStart2, btnReset2,
             btnOK, btnCancel;
     private JButton btnChange;
-    private Color myGreen, myBlue;
+    private Color color1, color2, color1hover, color2hover,
+            color1press, color2press, textcolorhover, textcolorpress;
     private boolean isStopwatch, showEdit;
     private JFrame editFrame;
     private JComboBox combohr, combomin, combosec;
@@ -69,8 +71,15 @@ public class Stopwatch extends JPanel implements ActionListener{
         });
     
     public Stopwatch(){
-        myGreen = new Color(135, 95, 154);
-        myBlue = new Color(72, 146, 155);
+        textcolorhover = new Color(215, 217, 222);
+        textcolorpress = new Color(199, 200, 204);
+        color1 = new Color(212, 99, 167);
+        color2 = new Color(87, 131, 219);
+        color1hover = new Color(196, 92, 155);
+        color2hover = new Color(79, 120, 201);
+        color1press = new Color(179, 84, 141);
+        color2press = new Color(72, 109, 184);
+        
         isStopwatch = true;
         
         setLayout(new BorderLayout());
@@ -81,7 +90,7 @@ public class Stopwatch extends JPanel implements ActionListener{
         name = new JLabel("Stopwatch");
         name.setFont(new Font(name.getFont().getName(), Font.BOLD, 20));
         name.setForeground(Color.WHITE);
-        name.setBackground(myGreen);
+        name.setBackground(color1);
         name.setOpaque(true);
         name.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         name.setHorizontalAlignment(JLabel.CENTER);
@@ -146,9 +155,9 @@ public class Stopwatch extends JPanel implements ActionListener{
         btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 8));
         btnStart = new RoundedButton("Start", 10, 10);
         btnReset = new RoundedButton("Reset", 10, 10);
-        btnStart.setBackground(myGreen);
+        btnStart.setBackground(color1);
         btnStart.setForeground(Color.WHITE);
-        btnReset.setForeground(myGreen);
+        btnReset.setForeground(color1);
         btnReset.setBackground(Color.WHITE);
         
         btnPanel.add(btnStart); btnPanel.add(btnReset);
@@ -156,25 +165,33 @@ public class Stopwatch extends JPanel implements ActionListener{
         btnStart2 = new RoundedButton("Start", 10, 10);
         btnEdit = new RoundedButton("Edit", 10, 10);
         btnReset2 = new RoundedButton("Reset", 10, 10);
-        btnEdit.setForeground(myBlue);
+        btnEdit.setForeground(color2);
         btnEdit.setBackground(Color.WHITE);
-        btnStart2.setBackground(myBlue);
+        btnStart2.setBackground(color2);
         btnStart2.setForeground(Color.WHITE);
-        btnReset2.setForeground(myBlue);
+        btnReset2.setForeground(color2);
         btnReset2.setBackground(Color.WHITE);
         
         btnStart.addActionListener(this);
         btnReset.addActionListener(this);
+        
         btnStart2.addActionListener(this);
         btnEdit.addActionListener(this);
         btnReset2.addActionListener(this);
+        
+        btnStart.addMouseListener(this);
+        btnReset.addMouseListener(this);
+        
+        btnStart2.addMouseListener(this);
+        btnEdit.addMouseListener(this);
+        btnReset2.addMouseListener(this);
         
         btn2Panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 8));
         btn2Panel.add(btnStart2); btn2Panel.add(btnEdit); btn2Panel.add(btnReset2);
         
         editFrame = new JFrame("Timer");
         JLabel messageLabel = new JLabel("Set your timer!");
-        messageLabel.setForeground(myBlue);
+        messageLabel.setForeground(color2);
         messageLabel.setFont(new Font(messageLabel.getFont().getName(), Font.BOLD, 18));
         JPanel messageLabelPanel = new JPanel();
         messageLabelPanel.add(messageLabel);
@@ -201,13 +218,17 @@ public class Stopwatch extends JPanel implements ActionListener{
         JPanel editBtnPanel = new JPanel();
         btnOK = new RoundedButton("OK", 10, 10);
         btnCancel = new RoundedButton("Cancel", 10, 10);
-        btnOK.setBackground(myBlue);
+        btnOK.setBackground(color2);
         btnOK.setForeground(Color.WHITE);
         btnCancel.setBackground(Color.WHITE);
-        btnCancel.setForeground(myBlue);
+        btnCancel.setForeground(color2);
         editBtnPanel.add(btnOK); editBtnPanel.add(btnCancel);
+        
         btnOK.addActionListener(this);
         btnCancel.addActionListener(this);
+        
+        btnOK.addMouseListener(this);
+        btnCancel.addMouseListener(this);
         
         editPanel.add(messageLabelPanel, BorderLayout.NORTH);
         comboBoxPanel.add(lb1);
@@ -229,7 +250,6 @@ public class Stopwatch extends JPanel implements ActionListener{
         showEdit = false;
         
         btnChange = new JButton();
-        btnChange.addActionListener(this);
         ImageIcon icon = new ImageIcon("refresh.png");
         btnChange.setPreferredSize(new Dimension(20, 20));
         int width = btnChange.getPreferredSize().width;
@@ -241,6 +261,9 @@ public class Stopwatch extends JPanel implements ActionListener{
         btnChange.setBorderPainted(false);
         JPanel btnchgPanel = new JPanel();
         btnchgPanel.add(btnChange);
+        
+        btnChange.addActionListener(this);
+        btnChange.addMouseListener(this);
         
         stopwatchPanel.add(timePanel, BorderLayout.CENTER);
         stopwatchPanel.add(btnPanel, BorderLayout.SOUTH);
@@ -286,12 +309,19 @@ public class Stopwatch extends JPanel implements ActionListener{
     }
     
     public void startTimer(){
-        hour2 = timeLableHr2.getTime();
-        minute2 = timeLableMin2.getTime();
-        second2 = timeLableSec2.getTime();
-        totalSeconds = hour2*3600 + minute2*60 + second2;
-        
-        timer2.start();
+        if(timeLableHr2.getTime()==0 && timeLableMin2.getTime()==0 && timeLableSec2.getTime()==0){
+            JOptionPane alert = new JOptionPane();
+            alert.showMessageDialog(editFrame, "Please set up your timer.");
+            alert.setFont(new Font(name.getFont().getName(), Font.BOLD, 48));
+            btnStart2.setText("Start");
+        }else{
+            hour2 = timeLableHr2.getTime();
+            minute2 = timeLableMin2.getTime();
+            second2 = timeLableSec2.getTime();
+            totalSeconds = hour2*3600 + minute2*60 + second2;
+
+            timer2.start();
+        }
     }
     public void stopTimer(){
         timer2.stop();
@@ -373,7 +403,7 @@ public class Stopwatch extends JPanel implements ActionListener{
                 name.setText("Timer");
                 timerPanel.setVisible(true);
                 stopwatchPanel.setVisible(false);
-                name.setBackground(myBlue);
+                name.setBackground(color2);
                 reset();
                 btnStart.setText("Start");
             } else {
@@ -381,9 +411,98 @@ public class Stopwatch extends JPanel implements ActionListener{
                 name.setText("Stopwatch");
                 timerPanel.setVisible(false);
                 stopwatchPanel.setVisible(true);
-                name.setBackground(myGreen);
+                name.setBackground(color1);
             }
             
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource().equals(btnStart)){
+            btnStart.setBackground(color1press);
+            btnStart.setForeground(textcolorpress);
+        }else if(e.getSource().equals(btnReset)){
+            btnReset.setBackground(textcolorpress);
+            btnReset.setForeground(color1press);
+        }else if(e.getSource().equals(btnStart2)){
+            btnStart2.setBackground(color2press);
+            btnStart2.setForeground(textcolorpress);
+        }else if(e.getSource().equals(btnOK)){
+            btnOK.setBackground(color2press);
+            btnOK.setForeground(textcolorpress);
+        }else if(e.getSource().equals(btnEdit)){
+            btnEdit.setBackground(textcolorpress);
+            btnEdit.setForeground(color2press);
+        }else if(e.getSource().equals(btnReset2)){
+            btnReset2.setBackground(textcolorpress);
+            btnReset2.setForeground(color2press);
+        }else if(e.getSource().equals(btnCancel)){
+            btnCancel.setBackground(textcolorpress);
+            btnCancel.setForeground(color2press);
+        }else if(e.getSource().equals(btnChange)){
+            btnChange.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.WHITE, Color.BLACK));
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource().equals(btnStart)){
+            btnStart.setBackground(color1hover);
+            btnStart.setForeground(textcolorhover);
+        }else if(e.getSource().equals(btnReset)){
+            btnReset.setBackground(textcolorhover);
+            btnReset.setForeground(color1hover);
+        }else if(e.getSource().equals(btnStart2)){
+            btnStart2.setBackground(color2hover);
+            btnStart2.setForeground(textcolorhover);
+        }else if(e.getSource().equals(btnOK)){
+            btnOK.setBackground(color2hover);
+            btnOK.setForeground(textcolorhover);
+        }else if(e.getSource().equals(btnEdit)){
+            btnEdit.setBackground(textcolorhover);
+            btnEdit.setForeground(color2hover);
+        }else if(e.getSource().equals(btnReset2)){
+            btnReset2.setBackground(textcolorhover);
+            btnReset2.setForeground(color2hover);
+        }else if(e.getSource().equals(btnCancel)){
+            btnCancel.setBackground(textcolorhover);
+            btnCancel.setForeground(color2hover);
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if(e.getSource().equals(btnStart)){
+            btnStart.setBackground(color1);
+            btnStart.setForeground(Color.WHITE);
+        }else if(e.getSource().equals(btnReset)){
+            btnReset.setBackground(Color.WHITE);
+            btnReset.setForeground(color1);
+        }else if(e.getSource().equals(btnStart2)){
+            btnStart2.setBackground(color2);
+            btnStart2.setForeground(Color.WHITE);
+        }else if(e.getSource().equals(btnOK)){
+            btnOK.setBackground(color2);
+            btnOK.setForeground(Color.WHITE);
+        }else if(e.getSource().equals(btnEdit)){
+            btnEdit.setBackground(Color.WHITE);
+            btnEdit.setForeground(color2);
+        }else if(e.getSource().equals(btnReset2)){
+            btnReset2.setBackground(Color.WHITE);
+            btnReset2.setForeground(color2);
+        }else if(e.getSource().equals(btnCancel)){
+            btnCancel.setBackground(Color.WHITE);
+            btnCancel.setForeground(color2);
         }
     }
     
