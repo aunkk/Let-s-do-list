@@ -127,6 +127,9 @@
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="Description..."/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DescriptionTextMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -165,10 +168,8 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="roundedPanel4" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="roundedPanel3" max="32767" attributes="0"/>
-                              <Component id="roundedPanel2" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="roundedPanel3" max="32767" attributes="0"/>
+                          <Component id="roundedPanel2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
@@ -225,6 +226,9 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="DD"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dateFieldMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -272,6 +276,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="monthFieldMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monthFieldActionPerformed"/>
                   </Events>
                 </Component>
@@ -321,6 +326,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="yearFieldMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yearFieldActionPerformed"/>
                   </Events>
                 </Component>

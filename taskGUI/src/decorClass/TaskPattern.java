@@ -22,14 +22,20 @@ public class TaskPattern extends javax.swing.JPanel {
     
     public static void setTitleName(String taskname){
         taskTitle.setText(taskname);
+        Main.setTitleName(taskname);
+    }
+    public static String getTitleName(){
+        return taskname;
     }
     
     public static void setState(String status){
         if (status.equals("available")) {
             TaskPattern.state = 1;
+            Main.setStatus(1);
         }
         else if (status.equals("not available")) {
             TaskPattern.state = 0;
+            Main.setStatus(0);
         }
     }
     public static int getState(){
