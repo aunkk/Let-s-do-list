@@ -5,6 +5,7 @@
 package MainSWM;
 
 //import *;
+import Main.MainTask;
 import decorClass.*;
 
 /**
@@ -57,9 +58,9 @@ public class EditDelete extends javax.swing.JFrame {
 
         EditButton.setText("Edit");
         EditButton.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        EditButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditButtonActionPerformed(evt);
+        EditButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditButtonMouseClicked(evt);
             }
         });
 
@@ -104,7 +105,6 @@ public class EditDelete extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         TaskPattern.setState("not available");
-//        objTask.state = 0;
         System.out.println(TaskPattern.getState());
     }//GEN-LAST:event_formWindowClosing
 
@@ -112,12 +112,12 @@ public class EditDelete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-        EditTitleFrame setNewText = new EditTitleFrame();
+    private void EditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditButtonMouseClicked
+        MainTask setNewText = new MainTask();
         setNewText.setLocationRelativeTo(null);
         setNewText.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_EditButtonActionPerformed
+    }//GEN-LAST:event_EditButtonMouseClicked
 
     /**
      * @param args the command line arguments

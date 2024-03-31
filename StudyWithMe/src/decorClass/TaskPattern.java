@@ -1,7 +1,7 @@
 
 package decorClass;
-import Main.*;
 //import decorClass.;
+import MainSWM.EditDelete;
 import java.awt.event.*;
 //import Main.*;
 /**
