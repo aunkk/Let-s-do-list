@@ -2,17 +2,34 @@ package Main;
 
 //import *;
 import decorClass.*;
+import java.util.HashMap;
 import javax.swing.text.*;
 
 
 public class MainTask extends javax.swing.JFrame {
-
+    private static String taskname;
+    private String dmy;
+    private String description;
+    private static int state;
+    private HashMap taskData = new HashMap(); //date,state,name,des
     
     public MainTask() {
         initComponents();
         
     }
+    
+    public static void setTitleName(String name){
+        taskname = name;
+    }
+    public static void setStatus(int status){
+        state = status;
+    }
+    public HashMap getTaskData() {return taskData;}
 
+    public String getTaskDate() {return (String)taskData.get("date");}
+    public int getTaskState() {return (int)taskData.get("state");}
+    public String getTaskName() {return (String)taskData.get("name");}
+    public String getTaskDes() {return (String)taskData.get("des");}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,7 +58,7 @@ public class MainTask extends javax.swing.JFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(221, 221, 221));
 
         jPanel1.setBackground(new java.awt.Color(133, 210, 203));
@@ -62,6 +79,11 @@ public class MainTask extends javax.swing.JFrame {
         dateField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         dateField.setText("DD");
         dateField.setBorder(null);
+        dateField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dateFieldMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout roundedPanel2Layout = new javax.swing.GroupLayout(roundedPanel2);
         roundedPanel2.setLayout(roundedPanel2Layout);
@@ -89,9 +111,9 @@ public class MainTask extends javax.swing.JFrame {
         monthField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         monthField.setText("MM");
         monthField.setBorder(null);
-        monthField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthFieldActionPerformed(evt);
+        monthField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                monthFieldMouseClicked(evt);
             }
         });
 
@@ -121,9 +143,9 @@ public class MainTask extends javax.swing.JFrame {
         yearField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         yearField.setText("YYYY");
         yearField.setBorder(null);
-        yearField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearFieldActionPerformed(evt);
+        yearField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yearFieldMouseClicked(evt);
             }
         });
 
@@ -194,6 +216,11 @@ public class MainTask extends javax.swing.JFrame {
         DescriptionText.setRows(5);
         DescriptionText.setText("Description...");
         DescriptionText.setBorder(null);
+        DescriptionText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DescriptionTextMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(DescriptionText);
 
         javax.swing.GroupLayout EditorPanelLayout = new javax.swing.GroupLayout(EditorPanel);
@@ -217,7 +244,7 @@ public class MainTask extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(145, 145, 145)
                 .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -257,16 +284,50 @@ public class MainTask extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
-        // TODO add your handling code here:
+        String date, month, year;
+        date = dateField.getText();
+        if (monthField.getText().length() == 1) {
+            month = "0"+monthField.getText();
+        }else {month = monthField.getText();}
+        year = yearField.getText();
+        dmy = date + "/" + month + "/" + year;
+
+        //taskname = TaskPattern.getTitleName();
+        //taskname = TaskPattern.taskTitle.getText();
+
+        description = DescriptionText.getText();
+
+        System.out.println("-----------");
+        System.out.println(dmy);
+        System.out.println(state);
+        System.out.println(taskname);
+        System.out.println(description);
+        taskData.put("date", dmy);
+        taskData.put("state", state);
+        taskData.put("name", taskname);
+        taskData.put("des", description);
+        System.out.println(taskData.entrySet());
+
+        this.dispose();
     }//GEN-LAST:event_doneButtonActionPerformed
 
-    private void monthFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monthFieldActionPerformed
+    private void DescriptionTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DescriptionTextMouseClicked
+        if ("Description...".equals(DescriptionText.getText())){
+            DescriptionText.selectAll();
+        }
+    }//GEN-LAST:event_DescriptionTextMouseClicked
 
-    private void yearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yearFieldActionPerformed
+    private void dateFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateFieldMouseClicked
+        DescriptionText.selectAll();
+    }//GEN-LAST:event_dateFieldMouseClicked
+
+    private void yearFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yearFieldMouseClicked
+        yearField.selectAll();
+    }//GEN-LAST:event_yearFieldMouseClicked
+
+    private void monthFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthFieldMouseClicked
+        monthField.selectAll();
+    }//GEN-LAST:event_monthFieldMouseClicked
 
     
     public static void main(String args[]) {
