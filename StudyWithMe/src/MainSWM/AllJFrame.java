@@ -25,7 +25,6 @@ public class AllJFrame extends JFrame implements MouseListener{
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
-        jScrollPane1.setBackground(null);
     }
 
     /**
@@ -63,12 +62,13 @@ public class AllJFrame extends JFrame implements MouseListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 230, 196));
-        setResizable(false);
 
         leftP.setBackground(new java.awt.Color(255, 255, 255));
         leftP.setForeground(new java.awt.Color(255, 255, 255));
 
         timerPanel.setBackground(new java.awt.Color(235, 212, 235));
+
+        stopwatch1.setBackground(null);
 
         javax.swing.GroupLayout timerPanelLayout = new javax.swing.GroupLayout(timerPanel);
         timerPanel.setLayout(timerPanelLayout);
@@ -205,7 +205,6 @@ public class AllJFrame extends JFrame implements MouseListener{
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
         );
 
-        jScrollPane1.setBackground(null);
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
