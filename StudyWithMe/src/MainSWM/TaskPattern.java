@@ -1,20 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package MainSWM;
 
+package decorClass;
+import Main.*;
+//import decorClass.;
+import java.awt.event.*;
+//import Main.*;
 /**
  *
  * @author DELL
  */
 public class TaskPattern extends javax.swing.JPanel {
-
+    private static String taskname = "Your task";
+    private static int state;
+//    private String status;
     /**
      * Creates new form TaskPattern
      */
     public TaskPattern() {
         initComponents();
+        state = 0;
+    }
+    
+    public static void setTitleName(String taskname){
+        taskTitle.setText(taskname);
+    }
+    
+    public static void setState(String status){
+        if (status.equals("available")) {
+            TaskPattern.state = 1;
+        }
+        else if (status.equals("not available")) {
+            TaskPattern.state = 0;
+        }
+    }
+    public static int getState(){
+        return TaskPattern.state;
+    }
+    
+    public void openEDframe(){
+        EditDelete buttonFrame = new EditDelete();
+        buttonFrame.setVisible(true);
+        TaskPattern.setState("available");
+        System.out.println(state + " : Edit or Delete me ?");
     }
 
     /**
@@ -26,63 +52,128 @@ public class TaskPattern extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        roundedPanel1 = new decorClass.RoundedPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        editButton1 = new decorClass.EditButton();
+        jPanel1 = new javax.swing.JPanel();
+        roundedPanel3 = new decorClass.RoundedPanel();
+        taskTitle = new javax.swing.JCheckBox();
+        buttEditor = new decorClass.EditButton();
 
         setBackground(null);
 
-        roundedPanel1.setBackground(new java.awt.Color(230, 237, 200));
+        jPanel1.setBackground(null);
 
-        jCheckBox1.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(60, 74, 61));
-        jCheckBox1.setText("jCheckBox1");
+        roundedPanel3.setBackground(new java.awt.Color(230, 237, 200));
 
-        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
-        roundedPanel1.setLayout(roundedPanel1Layout);
-        roundedPanel1Layout.setHorizontalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel1Layout.createSequentialGroup()
+        taskTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        taskTitle.setForeground(new java.awt.Color(60, 74, 61));
+        taskTitle.setText(taskname);
+        taskTitle.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                taskTitleStateChanged(evt);
+            }
+        });
+        taskTitle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taskTitleMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roundedPanel3Layout = new javax.swing.GroupLayout(roundedPanel3);
+        roundedPanel3.setLayout(roundedPanel3Layout);
+        roundedPanel3Layout.setHorizontalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jCheckBox1)
+                .addComponent(taskTitle)
                 .addContainerGap(75, Short.MAX_VALUE))
         );
-        roundedPanel1Layout.setVerticalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+        roundedPanel3Layout.setVerticalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
+                .addComponent(taskTitle)
                 .addContainerGap())
         );
 
-        editButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 10)); // NOI18N
+        buttEditor.setFont(new java.awt.Font("Comic Sans MS", 1, 10)); // NOI18N
+        buttEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttEditorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(roundedPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(buttEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(roundedPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(editButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roundedPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttEditorActionPerformed
+        if (TaskPattern.getState() == 0) {
+            openEDframe();
+        }
+        else{
+            openEDframe();
+        }
+    }//GEN-LAST:event_buttEditorActionPerformed
+
+    private void taskTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taskTitleMouseClicked
+        if (evt.getClickCount() == 2) {
+            EditTitleFrame newText = new EditTitleFrame();
+            newText.setLocationRelativeTo(null);
+            newText.setVisible(true);
+            if (newText.getTextEditor() != null) {
+                taskTitle.setText(newText.getTextEditor());
+                System.out.println(newText.getTextEditor());
+            }
+        }
+    }//GEN-LAST:event_taskTitleMouseClicked
+
+    private void taskTitleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_taskTitleStateChanged
+        if (taskTitle.isSelected()) {
+            taskTitle.setForeground(new java.awt.Color(187,187,187)); // ????????????
+        } else {
+            taskTitle.setForeground(new java.awt.Color(60, 74, 61)); // ???????????????
+        }
+    }//GEN-LAST:event_taskTitleStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private decorClass.EditButton editButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private decorClass.RoundedPanel roundedPanel1;
+    private decorClass.EditButton buttEditor;
+    private javax.swing.JPanel jPanel1;
+    private decorClass.RoundedPanel roundedPanel3;
+    private static javax.swing.JCheckBox taskTitle;
     // End of variables declaration//GEN-END:variables
 }
