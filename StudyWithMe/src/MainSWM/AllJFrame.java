@@ -38,7 +38,7 @@ public class AllJFrame extends JFrame implements MouseListener{
 
         leftP = new javax.swing.JPanel();
         timerPanel = new javax.swing.JPanel();
-        timepanel = new decorClass.RoundedPanel();
+        stopwatch1 = new time.Stopwatch();
         todoPanel = new javax.swing.JPanel();
         todoScroll = new javax.swing.JScrollPane();
         panel = new javax.swing.JPanel();
@@ -68,34 +68,23 @@ public class AllJFrame extends JFrame implements MouseListener{
 
         timerPanel.setBackground(new java.awt.Color(235, 212, 235));
 
-        timepanel.setBackground(new java.awt.Color(237, 217, 241));
-
-        javax.swing.GroupLayout timepanelLayout = new javax.swing.GroupLayout(timepanel);
-        timepanel.setLayout(timepanelLayout);
-        timepanelLayout.setHorizontalGroup(
-            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        timepanelLayout.setVerticalGroup(
-            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        stopwatch1.setBackground(null);
 
         javax.swing.GroupLayout timerPanelLayout = new javax.swing.GroupLayout(timerPanel);
         timerPanel.setLayout(timerPanelLayout);
         timerPanelLayout.setHorizontalGroup(
             timerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(timerPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(timepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(stopwatch1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                 .addContainerGap())
         );
         timerPanelLayout.setVerticalGroup(
             timerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timerPanelLayout.createSequentialGroup()
+            .addGroup(timerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(timepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(stopwatch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         todoPanel.setBackground(new java.awt.Color(212, 227, 235));
@@ -136,7 +125,7 @@ public class AllJFrame extends JFrame implements MouseListener{
             .addComponent(timerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(leftPLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addComponent(taskLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
             .addComponent(todoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -439,9 +428,9 @@ public class AllJFrame extends JFrame implements MouseListener{
     private javax.swing.JPanel rightP;
     private decorClass.RoundedButton searchButton;
     private decorClass.RoundedPanel searchPanel;
+    private time.Stopwatch stopwatch1;
     private javax.swing.JPanel swm_panel;
     private javax.swing.JLabel taskLabel;
-    private decorClass.RoundedPanel timepanel;
     private javax.swing.JPanel timerPanel;
     private javax.swing.JPanel todoPanel;
     private javax.swing.JScrollPane todoScroll;
