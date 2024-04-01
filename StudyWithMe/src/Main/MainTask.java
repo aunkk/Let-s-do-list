@@ -2,6 +2,7 @@ package Main;
 
 //import *;
 import decorClass.*;
+import java.awt.Color;
 import java.util.HashMap;
 import javax.swing.text.*;
 
@@ -41,16 +42,18 @@ public class MainTask extends javax.swing.JFrame {
         taskPattern1 = new decorClass.TaskPattern();
         roundedPanel1 = new decorClass.RoundedPanel();
         jLabel1 = new javax.swing.JLabel();
-        roundedPanel2 = new decorClass.RoundedPanel();
+        datePanel = new decorClass.RoundedPanel();
         dateField = new javax.swing.JTextField();
-        roundedPanel3 = new decorClass.RoundedPanel();
+        monthPanel = new decorClass.RoundedPanel();
         monthField = new javax.swing.JTextField();
-        roundedPanel4 = new decorClass.RoundedPanel();
+        yearPanel = new decorClass.RoundedPanel();
         yearField = new javax.swing.JTextField();
         doneButton = new decorClass.RoundedButton();
         EditorPanel = new decorClass.RoundedPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DescriptionText = new javax.swing.JTextArea();
+        roundedPanel5 = new decorClass.RoundedPanel();
+        DuedateBox = new javax.swing.JCheckBox();
 
         jTextArea1.setBackground(new java.awt.Color(221, 221, 221));
         jTextArea1.setColumns(20);
@@ -70,7 +73,7 @@ public class MainTask extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Due Date");
 
-        roundedPanel2.setBackground(new java.awt.Color(175, 222, 242));
+        datePanel.setBackground(new java.awt.Color(175, 222, 242));
 
         dateField.setBackground(new java.awt.Color(175, 222, 242));
         dateField.setColumns(2);
@@ -85,24 +88,24 @@ public class MainTask extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout roundedPanel2Layout = new javax.swing.GroupLayout(roundedPanel2);
-        roundedPanel2.setLayout(roundedPanel2Layout);
-        roundedPanel2Layout.setHorizontalGroup(
-            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout datePanelLayout = new javax.swing.GroupLayout(datePanel);
+        datePanel.setLayout(datePanelLayout);
+        datePanelLayout.setHorizontalGroup(
+            datePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        roundedPanel2Layout.setVerticalGroup(
-            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel2Layout.createSequentialGroup()
+        datePanelLayout.setVerticalGroup(
+            datePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dateField, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        roundedPanel3.setBackground(new java.awt.Color(175, 222, 242));
+        monthPanel.setBackground(new java.awt.Color(175, 222, 242));
 
         monthField.setBackground(new java.awt.Color(175, 222, 242));
         monthField.setColumns(2);
@@ -117,24 +120,24 @@ public class MainTask extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout roundedPanel3Layout = new javax.swing.GroupLayout(roundedPanel3);
-        roundedPanel3.setLayout(roundedPanel3Layout);
-        roundedPanel3Layout.setHorizontalGroup(
-            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout monthPanelLayout = new javax.swing.GroupLayout(monthPanel);
+        monthPanel.setLayout(monthPanelLayout);
+        monthPanelLayout.setHorizontalGroup(
+            monthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monthPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(monthField, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                .addComponent(monthField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        roundedPanel3Layout.setVerticalGroup(
-            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel3Layout.createSequentialGroup()
+        monthPanelLayout.setVerticalGroup(
+            monthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monthPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(monthField)
                 .addContainerGap())
         );
 
-        roundedPanel4.setBackground(new java.awt.Color(175, 222, 242));
+        yearPanel.setBackground(new java.awt.Color(175, 222, 242));
 
         yearField.setBackground(new java.awt.Color(175, 222, 242));
         yearField.setColumns(4);
@@ -149,18 +152,18 @@ public class MainTask extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout roundedPanel4Layout = new javax.swing.GroupLayout(roundedPanel4);
-        roundedPanel4.setLayout(roundedPanel4Layout);
-        roundedPanel4Layout.setHorizontalGroup(
-            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout yearPanelLayout = new javax.swing.GroupLayout(yearPanel);
+        yearPanel.setLayout(yearPanelLayout);
+        yearPanelLayout.setHorizontalGroup(
+            yearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, yearPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        roundedPanel4Layout.setVerticalGroup(
-            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel4Layout.createSequentialGroup()
+        yearPanelLayout.setVerticalGroup(
+            yearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yearPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(yearField, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                 .addContainerGap())
@@ -172,11 +175,11 @@ public class MainTask extends javax.swing.JFrame {
             roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(datePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(monthPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(yearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(roundedPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
@@ -189,9 +192,9 @@ public class MainTask extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(12, 12, 12)
                 .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(roundedPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(roundedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(yearPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(monthPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -239,20 +242,49 @@ public class MainTask extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
         );
 
+        roundedPanel5.setBackground(new java.awt.Color(104, 174, 216));
+
+        DuedateBox.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        DuedateBox.setForeground(new java.awt.Color(24, 86, 123));
+        DuedateBox.setText("Due Date");
+        DuedateBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                DuedateBoxStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roundedPanel5Layout = new javax.swing.GroupLayout(roundedPanel5);
+        roundedPanel5.setLayout(roundedPanel5Layout);
+        roundedPanel5Layout.setHorizontalGroup(
+            roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DuedateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        roundedPanel5Layout.setVerticalGroup(
+            roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DuedateBox, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roundedPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(taskPattern1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(EditorPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(roundedPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(taskPattern1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                    .addComponent(EditorPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE))
+                    .addComponent(roundedPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -262,11 +294,13 @@ public class MainTask extends javax.swing.JFrame {
                 .addComponent(taskPattern1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EditorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(roundedPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,6 +363,45 @@ public class MainTask extends javax.swing.JFrame {
         monthField.selectAll();
     }//GEN-LAST:event_monthFieldMouseClicked
 
+    private void DuedateBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_DuedateBoxStateChanged
+        if (DuedateBox.isSelected()) {
+            dateField.setEditable(true);
+            monthField.setEditable(true);
+            yearField.setEditable(true);
+            
+            dateField.setBackground(new Color(175,222,242));
+            datePanel.setBackground(new Color(175,222,242));
+            
+            monthField.setBackground(new Color(175,222,242));
+            monthPanel.setBackground(new Color(175,222,242));
+            
+            yearField.setBackground(new Color(175,222,242));
+            yearPanel.setBackground(new Color(175,222,242));
+            
+            dateField.setForeground(new java.awt.Color(69, 103, 150));
+            monthField.setForeground(new java.awt.Color(69, 103, 150));
+            yearField.setForeground(new java.awt.Color(69, 103, 150));
+        }
+        else{
+            dateField.setEditable(false);
+            monthField.setEditable(false);
+            yearField.setEditable(false);
+            
+            dateField.setBackground(new Color(191,223,237));
+            datePanel.setBackground(new Color(191,223,237));
+            
+            monthField.setBackground(new Color(191,223,237));
+            monthPanel.setBackground(new Color(191,223,237));
+            
+            yearField.setBackground(new Color(191,223,237));
+            yearPanel.setBackground(new Color(191,223,237));
+            
+            dateField.setForeground(new java.awt.Color(111,144,189));
+            monthField.setForeground(new java.awt.Color(111,144,189));
+            yearField.setForeground(new java.awt.Color(111,144,189));
+        }
+    }//GEN-LAST:event_DuedateBoxStateChanged
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -366,8 +439,10 @@ public class MainTask extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DescriptionText;
+    private javax.swing.JCheckBox DuedateBox;
     private decorClass.RoundedPanel EditorPanel;
     private javax.swing.JTextField dateField;
+    private decorClass.RoundedPanel datePanel;
     private decorClass.RoundedButton doneButton;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
@@ -375,11 +450,11 @@ public class MainTask extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField monthField;
+    private decorClass.RoundedPanel monthPanel;
     private decorClass.RoundedPanel roundedPanel1;
-    private decorClass.RoundedPanel roundedPanel2;
-    private decorClass.RoundedPanel roundedPanel3;
-    private decorClass.RoundedPanel roundedPanel4;
+    private decorClass.RoundedPanel roundedPanel5;
     private decorClass.TaskPattern taskPattern1;
     private javax.swing.JTextField yearField;
+    private decorClass.RoundedPanel yearPanel;
     // End of variables declaration//GEN-END:variables
 }
