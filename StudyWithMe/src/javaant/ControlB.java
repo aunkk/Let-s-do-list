@@ -4,10 +4,8 @@
  */
 package javaant;
 
-import decorClass.RoundedButton;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JButton;
 
 /**
  *
@@ -24,16 +22,6 @@ public class ControlB extends IconButton{
         super.setBackground(Color.WHITE);
         super.setPreferredSize(dButton);
     }
-/*
-    @Override
-    public String getimagePath() {
-        return imagePathC;
-    }
-
-    @Override
-    public int getSize() {
-        return sizeC;
-    }*/
     public ControlB(int size, String imagePath){
         super.imagePath = imagePath;
         super.size = size;

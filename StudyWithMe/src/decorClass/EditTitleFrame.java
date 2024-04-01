@@ -6,6 +6,7 @@ package decorClass;
 
 import Main.MainTask;
 import java.awt.Color;
+import javaant.TaskData;
 import javax.swing.*;
 
 /**
@@ -13,16 +14,21 @@ import javax.swing.*;
  * @author DELL
  */
 public class EditTitleFrame extends JFrame {
-    public static String textEditor;
-
+    public String textEditor;
+    private TaskData data;
+    private TaskPattern tp;
     /**
      * Creates new form EditTitleFrame
      */
     
     
-    public EditTitleFrame() {
+    public EditTitleFrame(TaskData data, TaskPattern tp) {
+        this.data = data;
+        this.tp = tp;
         initComponents();
         EditorField.setBackground(new Color(207,224,193));
+        
+        setVisible(true);
     }
     
     /**
@@ -67,7 +73,6 @@ public class EditTitleFrame extends JFrame {
 
         fieldpanel.setBackground(new java.awt.Color(207, 224, 193));
 
-        EditorField.setBackground(new java.awt.Color(207, 224, 193));
         EditorField.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         EditorField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EditorField.setBorder(null);
@@ -150,14 +155,17 @@ public class EditTitleFrame extends JFrame {
 
     private void DoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoneButtonActionPerformed
         textEditor = EditorField.getText();
-        TaskPattern.setTitleName(textEditor);
+        data.settaskname(textEditor);
         System.out.println(textEditor);
+        tp.setTitleName(textEditor);
+        
         this.dispose();
     }//GEN-LAST:event_DoneButtonActionPerformed
 
     private void EditorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditorFieldActionPerformed
         textEditor = EditorField.getText();
-        TaskPattern.setTitleName(textEditor);
+        data.settaskname(textEditor);
+        this.data = data;
         System.out.println(textEditor);
         this.dispose();
     }//GEN-LAST:event_EditorFieldActionPerformed
@@ -165,42 +173,7 @@ public class EditTitleFrame extends JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditTitleFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditTitleFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditTitleFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditTitleFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditTitleFrame().setVisible(true);
-            }
-        });
-    }
-    
-    public static String getTextEditor(){
-        return textEditor;
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private decorClass.RoundedButton DoneButton;
     private javax.swing.JTextField EditorField;

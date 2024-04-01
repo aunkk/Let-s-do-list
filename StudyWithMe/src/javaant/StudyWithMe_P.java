@@ -1,12 +1,9 @@
 package javaant;
 
-import decorClass.RoundedButton;
 import decorClass.RoundedPanel;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.util.*;
 public class StudyWithMe_P extends JPanel implements ActionListener{
     private JPanel pAni, pUpper, pText, pPlayPause, pMName1, pMName2;
@@ -25,12 +22,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     static boolean isLoop = false;
     Random random = new Random();
     private int musicI = 0;
-    
-    /*public JPanel OpaquePanel(JPanel jp) {
-        jp = new JPanel();
-        jp.setOpaque(true);
-        return jp;
-    }*/
     
     public StudyWithMe_P() {
     control = new ControlMusic_P();
@@ -54,14 +45,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     
     try{
         animated = new ImageIcon(getClass().getResource("/javaant/Icon/studywithduck120px.gif"));
-       /*
-        Image ori = animated.getImage();
-        BufferedImage resizedI = new BufferedImage(130, 130, BufferedImage.TYPE_INT_ARGB);Graphics2D g2d = resizedI.createGraphics();
-        g2d.drawImage(ori, 0, 0, 130, 130, null);
-        //g2d.dispose();
-        
-        animated = new ImageIcon(resizedI);
-      */
         displayA = new JLabel();
         displayA.setIcon(animated);
     } catch(Exception e) {
@@ -137,10 +120,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
         if (e.getSource() == bPause) {
             System.out.println("pause");
             control.PauseMusic();
-            
-            //change Icon
-            //might add .gif transition later 
-            //CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
             cardLayout.show(pPlayPause, "bPlay");  
         }
         else if (e.getSource() == bLoop){
@@ -168,10 +147,6 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
                 control.ResumeMusic();
                 System.out.println("resume until" + control.musicDuration);
             }
-           
-            //change Icon
-            //might add .gif transition later :D
-            //CardLayout cardLayout = (CardLayout) pPlayPause.getLayout();
             cardLayout.show(pPlayPause, "bPause");  
             
         }
@@ -190,11 +165,5 @@ public class StudyWithMe_P extends JPanel implements ActionListener{
     public static void setDisplayName(String m, String p) {
         displayName.setText(m);
         displayPName.setText(p);
-    }
-    public void displayPlaying() {
-        String musicName = control.getMusicName();
-        String[] splitName = musicName.split(" - ", 2);
-        displayName.setText(splitName[1]);
-        displayPName.setText(splitName[0]);
     }
 }

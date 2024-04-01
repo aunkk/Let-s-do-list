@@ -7,6 +7,7 @@ package MainSWM;
 import decorClass.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javaant.StudyWithMe_P;
 import javax.swing.*;
 
@@ -19,12 +20,14 @@ public class AllJFrame extends JFrame implements MouseListener{
     int numRow = 1;
     int numCol = 1;
     public EditButton editButton;
+    ArrayList<TaskPattern> tasklist;
     /**
      * Creates new form NewJFrame
      */
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
+        tasklist = new ArrayList();
     }
 
     /**
@@ -354,14 +357,24 @@ public class AllJFrame extends JFrame implements MouseListener{
         addTask.setFont(new Font("Comic Sans MS", 0, 16));
         addTask.setBackground(Color.WHITE);
         addTask.addActionListener((ActionEvent e) -> {
-            round += 1;
+            panel.removeAll();
             TaskPattern task = new TaskPattern();
-            panel.add(task);
+            tasklist.add(task);
+            System.out.println("tasklist num : "+tasklist.size());
+            round += 1;
             
             if (round > 1) {
                 numRow = round ;
                 panel.setLayout(new GridLayout(numRow, numCol));
                 System.out.println("numRow : "+numRow + ", numCol : "+numCol);
+                //new edit krub
+                for (int i = 0; i < round && i < tasklist.size(); i++) {
+                    panel.add(tasklist.get(i));
+        }
+                
+            }
+            else if (round == 1) {
+                panel.add(tasklist.get(0));
             }
             else{
                 System.out.println(numRow);

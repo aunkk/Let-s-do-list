@@ -7,18 +7,24 @@ package MainSWM;
 //import *;
 import Main.MainTask;
 import decorClass.*;
+import javaant.TaskData;
 
 /**
  *
  * @author DELL
  */
 public class EditDelete extends javax.swing.JFrame {
+    private TaskData data;
+    private TaskPattern tp;
 //    TaskPattern objTask = new TaskPattern();
     /**
      * Creates new form EditDelete
      */
-    public EditDelete() {
+    public EditDelete(TaskData data, TaskPattern tp) {
+        this.data = data;
+        this.tp = tp;
         initComponents();
+        setVisible(true);
     }
 
     /**
@@ -63,6 +69,11 @@ public class EditDelete extends javax.swing.JFrame {
                 EditButtonMouseClicked(evt);
             }
         });
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,8 +115,8 @@ public class EditDelete extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        TaskPattern.setState("not available");
-        System.out.println(TaskPattern.getState());
+        data.setstate("not available");
+        System.out.println(data.getstate());
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -113,47 +124,20 @@ public class EditDelete extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void EditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditButtonMouseClicked
-        MainTask setNewText = new MainTask();
+        
+    }//GEN-LAST:event_EditButtonMouseClicked
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+        MainTask setNewText = new MainTask(data, tp);
         setNewText.setLocationRelativeTo(null);
         setNewText.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_EditButtonMouseClicked
+    }//GEN-LAST:event_EditButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditDelete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditDelete().setVisible(true);
-            }
-        });
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private decorClass.RoundedButton DeleteButton;
     private decorClass.RoundedButton EditButton;

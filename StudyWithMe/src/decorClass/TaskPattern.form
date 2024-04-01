@@ -109,7 +109,7 @@
                   <Color blue="3d" green="4a" red="3c" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="taskname" type="code"/>
+                  <Connection code="data.gettaskname()" type="code"/>
                 </Property>
               </Properties>
               <Events>

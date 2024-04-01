@@ -1,53 +1,61 @@
 
 package decorClass;
 //import decorClass.;
-import Main.MainTask;
 import MainSWM.EditDelete;
 import java.awt.event.*;
+import javaant.TaskData;
 //import Main.*;
 /**
  *
  * @author DELL
  */
 public class TaskPattern extends javax.swing.JPanel {
-    private static String taskname = "Your task";
-    private static int state;
+    private String taskname;
+    private int state;
+    private TaskData data = new TaskData();
 //    private String status;
     /**
      * Creates new form TaskPattern
      */
     public TaskPattern() {
         initComponents();
-        state = 0;
-    }
-    
-    public static void setTitleName(String taskname){
+        //state = 0;
+        //data = new TaskData();
+        taskname = data.gettaskname();
         taskTitle.setText(taskname);
-        MainTask.setTitleName(taskname);
+        state = data.getstate();
+    }
+    public void setTaskTitle() {
+        taskname = data.gettaskname();
+        taskTitle.setText(taskname);
     }
     
-    public static String getTitleName(){
+    public void setTitleName(String taskname){
+        data.settaskname(taskname);
+        taskTitle.setText(taskname);
+    }
+    public String getTitleName(){
         return taskname;
     }
     
-    public static void setState(String status){
+    public void setState(String status){
         if (status.equals("available")) {
-            TaskPattern.state = 1;
-            MainTask.setStatus(1);
+            data.setstate(1);
         }
         else if (status.equals("not available")) {
-            TaskPattern.state = 0;
-            MainTask.setStatus(0);
+            data.setstate(0);
+
         }
     }
-    public static int getState(){
-        return TaskPattern.state;
+    public int getState(){
+        return state;
     }
     
     public void openEDframe(){
-        EditDelete buttonFrame = new EditDelete();
+        EditDelete buttonFrame = new EditDelete(data, this);
         buttonFrame.setVisible(true);
-        TaskPattern.setState("available");
+        data.setstate("available");
+        state = data.getstate();
         System.out.println(state + " : Edit or Delete me ?");
     }
 
@@ -73,7 +81,7 @@ public class TaskPattern extends javax.swing.JPanel {
 
         taskTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         taskTitle.setForeground(new java.awt.Color(60, 74, 61));
-        taskTitle.setText(taskname);
+        taskTitle.setText(data.gettaskname());
         taskTitle.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 taskTitleStateChanged(evt);
@@ -149,7 +157,7 @@ public class TaskPattern extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttEditorActionPerformed
-        if (TaskPattern.getState() == 0) {
+        if (state == 0) {
             openEDframe();
         }
         else{
@@ -159,13 +167,15 @@ public class TaskPattern extends javax.swing.JPanel {
 
     private void taskTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taskTitleMouseClicked
         if (evt.getClickCount() == 2) {
-            EditTitleFrame newText = new EditTitleFrame();
+            EditTitleFrame newText = new EditTitleFrame(data, this);
             newText.setLocationRelativeTo(null);
             newText.setVisible(true);
+            /*
             if (newText.getTextEditor() != null) {
-                taskTitle.setText(newText.getTextEditor());
+                data.settaskname(newText.getTextEditor());
                 System.out.println(newText.getTextEditor());
-            }
+            }*/
+            taskname = data.gettaskname();
         }
     }//GEN-LAST:event_taskTitleMouseClicked
 
@@ -184,4 +194,8 @@ public class TaskPattern extends javax.swing.JPanel {
     private decorClass.RoundedPanel roundedPanel3;
     private static javax.swing.JCheckBox taskTitle;
     // End of variables declaration//GEN-END:variables
+
+    void updateTaskTitle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
