@@ -1,6 +1,6 @@
 package javaant;
 
 public interface savable{
-    public abstract void readfile();
+    public abstract void savefile();
     public abstract void loadfile();
 }

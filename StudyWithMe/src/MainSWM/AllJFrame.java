@@ -7,16 +7,19 @@ package MainSWM;
 import decorClass.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 import java.util.ArrayList;
 import javaant.StudyWithMe_P;
 import javaant.TaskData;
+import javaant.savable;
 import javax.swing.*;
 
 /**
  *
  * @author plengkubpom
  */
-public class AllJFrame extends JFrame implements MouseListener{
+public class AllJFrame extends JFrame implements savable, MouseListener{
+    private String filePath = "LetsDoList_save.data";
     int round = 0;
     int numRow = 1;
     int numCol = 1;
@@ -28,7 +31,8 @@ public class AllJFrame extends JFrame implements MouseListener{
     public void removeTask(int i){
         //i = round-1 from editdelete class
         tasklist.remove(i);
-        this.round -= 1;
+        taskdatalist.remove(i);
+        this.round = taskdatalist.size();
         refreshTask();
     }
     public void clearAllTask(){
@@ -69,8 +73,7 @@ public class AllJFrame extends JFrame implements MouseListener{
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
-        tasklist = new ArrayList();
-        taskdatalist = new ArrayList();
+        loadfile();
     }
 
     /**
@@ -108,13 +111,16 @@ public class AllJFrame extends JFrame implements MouseListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 230, 196));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         leftP.setBackground(new java.awt.Color(255, 255, 255));
         leftP.setForeground(new java.awt.Color(255, 255, 255));
 
         timerPanel.setBackground(new java.awt.Color(235, 212, 235));
-
-        stopwatch1.setBackground(null);
 
         javax.swing.GroupLayout timerPanelLayout = new javax.swing.GroupLayout(timerPanel);
         timerPanel.setLayout(timerPanelLayout);
@@ -439,6 +445,10 @@ public class AllJFrame extends JFrame implements MouseListener{
         dialog.setSize(200, 100);
         dialog.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        savefile();
+    }//GEN-LAST:event_formWindowClosing
     
     /**
      * @param args the command line arguments
@@ -520,5 +530,38 @@ public class AllJFrame extends JFrame implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void savefile() {
+        AllData saveall = new AllData();
+        saveall.setTaskdatalist(taskdatalist);
+
+        try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            oout.writeObject(saveall);
+            System.out.println("successfully writing file");
+        } catch (IOException e) {
+            System.err.println("Error writing file");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void loadfile() {
+        
+        try (FileInputStream fileIn = new FileInputStream(filePath);
+             ObjectInputStream oin = new ObjectInputStream(fileIn)) {
+            AllData readSave = (AllData) oin.readObject();
+            System.out.println("Object read");
+            tasklist = new ArrayList();
+            taskdatalist = readSave.getTaskdatalist();
+            recreateTask();
+            
+        } catch (Exception e) {
+            System.out.println("not found previous file");
+            
+            tasklist = new ArrayList();
+            taskdatalist = new ArrayList();
+        }
     }
 }

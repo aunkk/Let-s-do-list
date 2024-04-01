@@ -1,12 +1,13 @@
 package javaant;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 
 /**
  *
  * @pleng ja
  */
-public class TaskData {
+public class TaskData implements Serializable{
     private String taskname = "Your Task";
     private String dmy = "DD/MM/YYYY";
     private String date = "DD";
