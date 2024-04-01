@@ -65,6 +65,8 @@ public class Notepad extends JTextPane implements MouseListener, MouseMotionList
         super.paintComponent(g);
         if (darkModeOn){
             g.setColor(Color.BLACK);
+            this.setSelectionColor(Color.WHITE);
+            this.setCaretColor(Color.WHITE);
         }
             //old lines
         for (ArrayList<Point> line : lines) {

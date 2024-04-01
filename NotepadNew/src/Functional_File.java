@@ -1,10 +1,7 @@
+import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.text.PlainDocument;
 public class Functional_File {
         private NotepadGUI notepad;
         private String fileName;
@@ -13,7 +10,11 @@ public class Functional_File {
             this.notepad = notepad;
         }
         public void newFile(){
-            notepad.note = new Notepad();
+            /*notepad.note = new Notepad();
+            notepad.noteWithScrollPane = new JScrollPane(notepad.note, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            notepad.add(new Notepad());*/
+            notepad.note.setText("");
+            notepad.note.lines.clear();
             notepad.setTitle("New");
             fileName = null;
             fileAddress = null;
@@ -21,7 +22,6 @@ public class Functional_File {
         public void openFile() {
             File fs;
             JFileChooser fc = new JFileChooser();
-            //fc.setFileFilter(new FileNameExtensionFilter("Open Image"));
             fc.showOpenDialog(notepad);
             fs = fc.getSelectedFile();
             
@@ -37,7 +37,7 @@ public class Functional_File {
                 notepad.note = (Notepad)ois.readObject();
                 notepad.add(notepad.note);
                 } catch (IOException ex) {
-                    System.out.println("There Somthing Wrong");
+                    System.out.println("There's Somthing Wrong");
                 } catch (ClassNotFoundException ex) {
                     System.out.println("Not Found");
                 }
@@ -52,7 +52,7 @@ public class Functional_File {
                     oos.writeObject(notepad.note.getAccessibleContext());
                     notepad.setTitle(fileName);
                 }catch(Exception ex){
-                    System.out.println("Wrong");
+                    System.out.println("There's Somthing Wrong");
                 }
             }
         }
@@ -69,7 +69,7 @@ public class Functional_File {
                     ObjectOutputStream oos = new ObjectOutputStream(fos);){
                     oos.writeObject(notepad.note);
                 }catch (Exception ex) {
-                    System.out.println("There Somthing Wrong");
+                    System.out.println("There's Somthing Wrong");
                 }
             }
         }

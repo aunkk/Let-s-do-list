@@ -1,8 +1,5 @@
-
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
-
-
 public class Functional_Edit {
     private NotepadGUI notepad;
     public Functional_Edit(NotepadGUI notepad){
@@ -26,3 +23,14 @@ public class Functional_Edit {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
