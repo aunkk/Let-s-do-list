@@ -67,6 +67,7 @@ public class EditTitleFrame extends JFrame {
 
         fieldpanel.setBackground(new java.awt.Color(207, 224, 193));
 
+        EditorField.setBackground(new java.awt.Color(207, 224, 193));
         EditorField.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         EditorField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EditorField.setBorder(null);
