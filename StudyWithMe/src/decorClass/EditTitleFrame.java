@@ -25,6 +25,7 @@ public class EditTitleFrame extends JFrame {
     public EditTitleFrame(TaskData data, TaskPattern tp) {
         this.data = data;
         this.tp = tp;
+        System.out.println("ETF : task no. "+tp.getTaskOrder());
         initComponents();
         EditorField.setBackground(new Color(207,224,193));
         
@@ -157,17 +158,14 @@ public class EditTitleFrame extends JFrame {
         textEditor = EditorField.getText();
         data.settaskname(textEditor);
         System.out.println(textEditor);
-        tp.setTitleName(textEditor);
-        
+        //tp.setTitleName(textEditor);
+        //tp.setTitleName(data.gettaskname());
+        tp.resetTitleName();
         this.dispose();
     }//GEN-LAST:event_DoneButtonActionPerformed
 
     private void EditorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditorFieldActionPerformed
-        textEditor = EditorField.getText();
-        data.settaskname(textEditor);
-        this.data = data;
-        System.out.println(textEditor);
-        this.dispose();
+
     }//GEN-LAST:event_EditorFieldActionPerformed
 
     /**

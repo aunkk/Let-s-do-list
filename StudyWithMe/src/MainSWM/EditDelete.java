@@ -16,13 +16,16 @@ import javaant.TaskData;
 public class EditDelete extends javax.swing.JFrame {
     private TaskData data;
     private TaskPattern tp;
+    private AllJFrame allj;
 //    TaskPattern objTask = new TaskPattern();
     /**
      * Creates new form EditDelete
      */
-    public EditDelete(TaskData data, TaskPattern tp) {
+    public EditDelete(AllJFrame allj, TaskData data, TaskPattern tp) {
+        this.allj = allj;
         this.data = data;
         this.tp = tp;
+        System.out.println("ED : task no. "+tp.getTaskOrder());
         initComponents();
         setVisible(true);
     }
@@ -111,7 +114,7 @@ public class EditDelete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
-        // TODO add your handling code here:
+        allj.removeTask(tp.getTaskOrder()-1);
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
