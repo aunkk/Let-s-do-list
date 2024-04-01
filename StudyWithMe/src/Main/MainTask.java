@@ -318,7 +318,7 @@ public class MainTask extends javax.swing.JFrame {
     }//GEN-LAST:event_DescriptionTextMouseClicked
 
     private void dateFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateFieldMouseClicked
-        DescriptionText.selectAll();
+        dateField.selectAll();
     }//GEN-LAST:event_dateFieldMouseClicked
 
     private void yearFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yearFieldMouseClicked
