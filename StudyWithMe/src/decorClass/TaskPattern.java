@@ -1,6 +1,7 @@
 
 package decorClass;
 //import decorClass.;
+import MainSWM.AllJFrame;
 import MainSWM.EditDelete;
 import java.awt.event.*;
 import javaant.TaskData;
@@ -10,29 +11,39 @@ import javaant.TaskData;
  * @author DELL
  */
 public class TaskPattern extends javax.swing.JPanel {
+    private int taskOrder;
     private String taskname;
     private int state;
     private TaskData data = new TaskData();
+    private AllJFrame allj;
 //    private String status;
     /**
      * Creates new form TaskPattern
+     * @param allj
+     * @param taskOrder
      */
-    public TaskPattern() {
+    public TaskPattern(AllJFrame allj, int taskOrder) {
         initComponents();
         //state = 0;
         //data = new TaskData();
+        this.allj = allj;
+        this.taskOrder = taskOrder;
         taskname = data.gettaskname();
-        taskTitle.setText(taskname);
         state = data.getstate();
     }
-    public void setTaskTitle() {
-        taskname = data.gettaskname();
+    public int getTaskOrder() {
+        return taskOrder;
+    }
+    public void setTaskTitle(String taskname) {
         taskTitle.setText(taskname);
     }
     
     public void setTitleName(String taskname){
-        data.settaskname(taskname);
+        //data.settaskname(taskname);
         taskTitle.setText(taskname);
+    }
+    public void resetTitleName() {
+        taskTitle.setText(data.gettaskname());
     }
     public String getTitleName(){
         return taskname;
@@ -52,7 +63,7 @@ public class TaskPattern extends javax.swing.JPanel {
     }
     
     public void openEDframe(){
-        EditDelete buttonFrame = new EditDelete(data, this);
+        EditDelete buttonFrame = new EditDelete(allj, data, this);
         buttonFrame.setVisible(true);
         data.setstate("available");
         state = data.getstate();

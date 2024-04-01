@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javaant.StudyWithMe_P;
+import javaant.TaskData;
 import javax.swing.*;
 
 /**
@@ -21,9 +22,24 @@ public class AllJFrame extends JFrame implements MouseListener{
     int numCol = 1;
     public EditButton editButton;
     ArrayList<TaskPattern> tasklist;
-    /**
-     * Creates new form NewJFrame
-     */
+    ArrayList<TaskData> taskdatalist;
+    
+    public void removeTask(int i){
+        tasklist.remove(i);
+        this.round -= 1;
+        refreshTask();
+    }
+    public void clearAllTask(){
+        panel.removeAll();
+        tasklist.clear();
+        //this.round = 0;
+    }
+    //clear n re-read
+    public void refreshTask(){
+        panel.removeAll();
+        addTaskToPanel();
+        
+    }
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
@@ -358,29 +374,12 @@ public class AllJFrame extends JFrame implements MouseListener{
         addTask.setBackground(Color.WHITE);
         addTask.addActionListener((ActionEvent e) -> {
             panel.removeAll();
-            TaskPattern task = new TaskPattern();
+            round += 1;
+            TaskPattern task = new TaskPattern(this, round);
             tasklist.add(task);
             System.out.println("tasklist num : "+tasklist.size());
-            round += 1;
             
-            if (round > 1) {
-                numRow = round ;
-                panel.setLayout(new GridLayout(numRow, numCol));
-                System.out.println("numRow : "+numRow + ", numCol : "+numCol);
-                //new edit krub
-                for (int i = 0; i < round && i < tasklist.size(); i++) {
-                    panel.add(tasklist.get(i));
-        }
-                
-            }
-            else if (round == 1) {
-                panel.add(tasklist.get(0));
-            }
-            else{
-                System.out.println(numRow);
-            }
-            panel.revalidate();
-            panel.repaint();
+            addTaskToPanel();
             
             Window window = SwingUtilities.getWindowAncestor(addTask);
             if (window != null) {
@@ -424,7 +423,26 @@ public class AllJFrame extends JFrame implements MouseListener{
             }
         });
     }
-
+    public void addTaskToPanel() {
+        if (tasklist.size() > 1) {
+                numRow = tasklist.size() ;
+                panel.setLayout(new GridLayout(numRow, numCol));
+                System.out.println("numRow : "+numRow + ", numCol : "+numCol);
+                //new edit krub
+                for (int i = 0; i < tasklist.size(); i++) {
+                    panel.add(tasklist.get(i));
+        }
+                
+            }
+            else if (tasklist.size() == 1) {
+                panel.add(tasklist.get(0));
+            }
+            else{
+                System.out.println(numRow);
+            }
+            panel.revalidate();
+            panel.repaint();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Calendar;
     private decorClass.RoundedPanel CalendarRoundPanel;

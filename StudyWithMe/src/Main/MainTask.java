@@ -19,6 +19,7 @@ public class MainTask extends javax.swing.JFrame {
     public MainTask(TaskData data, TaskPattern tp) {
         this.data = data;
         this.tp = tp;
+        System.out.println("MT : task no. "+tp.getTaskOrder());
         System.out.println("[ testing MainTask ]");
         System.out.println(data.gettaskname());
         System.out.println(data.getdmy());
@@ -312,11 +313,15 @@ public class MainTask extends javax.swing.JFrame {
         data.setYear(year);
         data.settaskname(taskname);
         data.setdes(description);
+        /*
         System.out.println("-----------");
         System.out.println(data.getdmy());
         System.out.println(state);
         System.out.println(taskname);
         System.out.println(description);
+        */
+        //tp.setTitleName(taskname);
+        tp.resetTitleName();
         //dispose();
     }//GEN-LAST:event_doneButtonActionPerformed
 
