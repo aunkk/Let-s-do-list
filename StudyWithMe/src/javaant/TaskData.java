@@ -14,7 +14,8 @@ public class TaskData {
     private String year = "YYYY";
     private String description = "Description...";
     private int state = 0;
-    
+    //copy from DateChooser
+    private final String MONTH_ENGLISH[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     public TaskData() {
         this.taskname = "Your Task";
         this.state = 0;
@@ -30,6 +31,8 @@ public class TaskData {
     private String[] d_m_y;
     
     public String gettaskname() {return taskname;}
+    public String getdes() {return description;}
+    public int getstate() {return state;}
     public String getdmy() {
         if (!"DD/MM/YYYY".equals(dmy)){
         return dmy;}
@@ -38,9 +41,6 @@ public class TaskData {
             return dmy;
         }
     }
-    public String getdes() {return description;}
-    public int getstate() {return state;}
-    
     public void settaskname(String taskname){
         this.taskname = taskname;
         System.out.println("[set TaskData]taskname = " + taskname);
@@ -89,5 +89,5 @@ public class TaskData {
     public String getMonth() {return month;}
     public String getYear() {return year;}
     public String[] getdmyArray() {return d_m_y;}
-    
+    public String getMonthEN() {return MONTH_ENGLISH[Integer.parseInt(month)-1];}
 }
