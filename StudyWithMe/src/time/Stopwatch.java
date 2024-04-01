@@ -86,11 +86,13 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
         
         setLayout(new BorderLayout());
         
+        
+        
         stopwatchPanel = new JPanel(new BorderLayout());
         timerPanel = new JPanel(new BorderLayout());
         
         name = new JLabel("Stopwatch");
-        name.setFont(new Font(name.getFont().getName(), Font.BOLD, 20));
+        name.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         name.setForeground(Color.WHITE);
         name.setBackground(color1);
         name.setOpaque(true);
@@ -109,8 +111,9 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
         
         colon1 = new JLabel(":");
         colon2 = new JLabel(":");
-        colon1.setFont(new Font(colon1.getFont().getName(), colon1.getFont().getStyle(), 20));
-        colon2.setFont(new Font(colon1.getFont().getName(), colon1.getFont().getStyle(), 20));
+        colon1.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        colon2.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        
         
         JPanel p1 = new JPanel(new BorderLayout());
         JLabel space1 = new JLabel(" ");
@@ -194,12 +197,15 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
         editFrame = new JFrame("Timer");
         JLabel messageLabel = new JLabel("Set your timer!");
         messageLabel.setForeground(color2);
-        messageLabel.setFont(new Font(messageLabel.getFont().getName(), Font.BOLD, 18));
+        messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
         JPanel messageLabelPanel = new JPanel();
         messageLabelPanel.add(messageLabel);
         JLabel lb1 = new JLabel("hour");
         JLabel lb2 = new JLabel("min");
         JLabel lb3 = new JLabel("sec");
+        lb1.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+        lb2.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+        lb3.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
         JPanel editPanel = new JPanel(new BorderLayout());
         JPanel comboBoxPanel = new JPanel();
         String[] nums = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
@@ -231,6 +237,14 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
         
         btnOK.addMouseListener(this);
         btnCancel.addMouseListener(this);
+        
+        btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnStart2.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnEdit.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnReset.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnReset2.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnOK.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        btnCancel.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
         
         editPanel.add(messageLabelPanel, BorderLayout.NORTH);
         comboBoxPanel.add(lb1);
@@ -314,7 +328,7 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
         if(timeLableHr2.getTime()==0 && timeLableMin2.getTime()==0 && timeLableSec2.getTime()==0){
             JOptionPane alert = new JOptionPane();
             alert.showMessageDialog(editFrame, "Please set up your timer.");
-            alert.setFont(new Font(name.getFont().getName(), Font.BOLD, 48));
+            alert.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
             btnStart2.setText("Start");
         }else{
             hour2 = timeLableHr2.getTime();
@@ -406,8 +420,8 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
                 timerPanel.setVisible(true);
                 stopwatchPanel.setVisible(false);
                 name.setBackground(color2);
-                reset();
-                btnStart.setText("Start");
+//                reset();
+//                btnStart.setText("Start");
             } else {
                 isStopwatch = true;
                 name.setText("Stopwatch");

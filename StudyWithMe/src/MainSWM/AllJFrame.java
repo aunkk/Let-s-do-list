@@ -8,7 +8,7 @@ import decorClass.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 import javaant.StudyWithMe_P;
 import javaant.TaskData;
 import javaant.savable;
@@ -27,6 +27,8 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     private TaskData data;
     ArrayList<TaskPattern> tasklist;
     ArrayList<TaskData> taskdatalist;
+    ArrayList<Task> tasks; //object tasks from class Task
+    DefaultListModel<String> model;
     
     public void removeTask(int i){
         //i = round-1 from editdelete class
@@ -73,6 +75,32 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
+        
+        taskPopup.add(p); //add panel to taskPopup
+        
+        tasks = new ArrayList<>(); //tasks is arrayList to store task
+        tasks.add(new Task("do homework", "2024-04-01")); // Example task data
+        tasks.add(new Task("clean house", "2024-04-02")); // Example task data
+        tasks.add(new Task("OOP project", "2024-05-01")); // Example task data
+        tasks.add(new Task("FE test", "2024-03-02")); // Example task data
+        tasks.add(new Task("business project", "2024-05-02"));
+        tasks.add(new Task("my birthday!", "2024-05-03"));
+        tasks.add(new Task("go vacation", "2024-05-30"));
+        tasks.add(new Task("midterm", "2024-06-02"));
+        tasks.add(new Task("prob quiz#1", "2024-06-02"));
+        tasks.add(new Task("prob quiz#2", "2024-12-02"));
+        tasks.add(new Task("prob quiz#3", "2024-12-02"));
+        tasks.add(new Task("prob quiz#4", "2024-12-02"));
+        tasks.add(new Task("data structure homework", "2024-11-02"));
+        tasks.add(new Task("business quiz", "2024-11-05"));
+        tasks.add(new Task("my cat's birthday!", "2024-06-22"));
+        tasks.add(new Task("go shopping", "2024-12-02"));
+        tasks.add(new Task("study for midterm", "2024-12-02"));
+        tasks.add(new Task("math quiz", "2024-12-02"));
+        
+        
+        model = new DefaultListModel<>(); // create model
+        suggestionList.setModel(model); //put model in list
         loadfile();
     }
 
@@ -85,6 +113,10 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        p = new javax.swing.JPanel();
+        suggestionScrollPane = new javax.swing.JScrollPane();
+        suggestionList = new javax.swing.JList<>();
+        taskPopup = new javax.swing.JPopupMenu();
         leftP = new javax.swing.JPanel();
         timerPanel = new javax.swing.JPanel();
         stopwatch1 = new time.Stopwatch();
@@ -98,16 +130,40 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         CalendarRoundPanel = new decorClass.RoundedPanel();
         SearchTool = new RoundedPanel(50, 50);
         searchPanel = new decorClass.RoundedPanel();
+        searchField = new javax.swing.JTextField();
         searchButton = new decorClass.RoundedButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         StudyWithMe_P swm = new StudyWithMe_P();
         swm_panel = new RoundedPanel(50, 50);
         lowerP3 = new javax.swing.JPanel();
-        noteScroll = new javax.swing.JScrollPane();
-        noteDisplay = new javax.swing.JPanel();
         noteEditPanel = new decorClass.RoundedPanel();
+        notepadGUI1 = new NotePad.NotepadGUI();
         addButton = new decorClass.CircleButton();
-        notificationButton = new decorClass.CircleButton();
+
+        suggestionList.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        suggestionScrollPane.setViewportView(suggestionList);
+
+        javax.swing.GroupLayout pLayout = new javax.swing.GroupLayout(p);
+        p.setLayout(pLayout);
+        pLayout.setHorizontalGroup(
+            pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 258, Short.MAX_VALUE)
+            .addGroup(pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(suggestionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        pLayout.setVerticalGroup(
+            pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+            .addGroup(pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(suggestionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 230, 196));
@@ -136,7 +192,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             .addGroup(timerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(stopwatch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         todoPanel.setBackground(new java.awt.Color(212, 227, 235));
@@ -197,6 +253,8 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
 
         upperP.setBackground(new java.awt.Color(211, 235, 221));
 
+        Calendar.setBackground(new java.awt.Color(211, 235, 221));
+
         CalendarRoundPanel.setBackground(new java.awt.Color(198, 198, 198));
 
         javax.swing.GroupLayout CalendarRoundPanelLayout = new javax.swing.GroupLayout(CalendarRoundPanel);
@@ -223,17 +281,36 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             .addComponent(CalendarRoundPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        searchPanel.setBackground(new java.awt.Color(198, 198, 198));
+        SearchTool.setBackground(new java.awt.Color(211, 235, 221));
+
+        searchPanel.setBackground(new java.awt.Color(218, 249, 226));
+        searchPanel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+
+        searchField.setBackground(new java.awt.Color(218, 249, 226));
+        searchField.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        searchField.setText("searchBar");
+        searchField.setBorder(null);
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchField, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addContainerGap())
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchField)
+                .addContainerGap())
         );
 
         searchButton.setText("Search");
@@ -257,14 +334,39 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(211, 235, 221));
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(224, 199));
 
+        jPanel1.setBackground(new java.awt.Color(211, 235, 221));
+
         swm_panel.add(swm);
         swm_panel.setBackground(new java.awt.Color(222, 230, 255));
-        jScrollPane1.setViewportView(swm_panel);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 224, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(swm_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(swm_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout upperPLayout = new javax.swing.GroupLayout(upperP);
         upperP.setLayout(upperPLayout);
@@ -294,24 +396,25 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
 
         lowerP3.setBackground(new java.awt.Color(212, 235, 231));
 
-        noteScroll.setBorder(null);
-        noteScroll.setPreferredSize(new java.awt.Dimension(200, 4000));
-
-        noteDisplay.setBackground(new java.awt.Color(201, 228, 200));
-        noteDisplay.setLayout(new java.awt.GridLayout(1, 2));
-        noteScroll.setViewportView(noteDisplay);
-
         noteEditPanel.setBackground(new java.awt.Color(193, 193, 193));
+
+        notepadGUI1.setVisible(true);
 
         javax.swing.GroupLayout noteEditPanelLayout = new javax.swing.GroupLayout(noteEditPanel);
         noteEditPanel.setLayout(noteEditPanelLayout);
         noteEditPanelLayout.setHorizontalGroup(
             noteEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(noteEditPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(notepadGUI1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+                .addContainerGap())
         );
         noteEditPanelLayout.setVerticalGroup(
             noteEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(noteEditPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(notepadGUI1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         addButton.setBackground(new java.awt.Color(193, 193, 193));
@@ -323,25 +426,14 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             }
         });
 
-        notificationButton.setBackground(new java.awt.Color(235, 196, 98));
-        notificationButton.setToolTipText("");
-
         javax.swing.GroupLayout lowerP3Layout = new javax.swing.GroupLayout(lowerP3);
         lowerP3.setLayout(lowerP3Layout);
         lowerP3Layout.setHorizontalGroup(
             lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lowerP3Layout.createSequentialGroup()
-                .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lowerP3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(notificationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lowerP3Layout.createSequentialGroup()
-                        .addComponent(noteEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)))
+                .addComponent(noteEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         lowerP3Layout.setVerticalGroup(
@@ -349,13 +441,9 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             .addGroup(lowerP3Layout.createSequentialGroup()
                 .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lowerP3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(noteEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                            .addComponent(notificationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(noteScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap(288, Short.MAX_VALUE)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(noteEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -365,7 +453,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             rightPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(rightPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(rightPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(upperP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lowerP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -449,6 +537,41 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         savefile();
     }//GEN-LAST:event_formWindowClosing
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        String searchText = searchField.getText().toLowerCase();
+        model.removeAllElements(); //clear model
+        if (!searchText.isEmpty()) {
+            taskPopup.show(searchField, 0, searchField.getHeight());
+            ArrayList<Task> matchingTasks = new ArrayList<>(); //new ArtrayList to store matching task
+                    for (Task task : tasks) {   //task = object in tasks -> loop to compare searchText-task
+                        if (task.getName().toLowerCase().contains(searchText) || task.getDueDate().contains(searchText)) { //1.check from name 2.check from duedate -> use (.contains(searchText))
+                            matchingTasks.add(task); //if match add match-task to matchingTasks-ArrayList
+                        }
+                    }
+                    Collections.sort(matchingTasks, new Comparator<Task>() {                    //Sort matchingTask // Comparator is filter -> sort(ArrayList, filter)
+                        public int compare(Task t1, Task t2) {                                  // filter -> show task with 1st.closer name -> 2nd.closer due date
+                        char firstLetter1 = t1.getName().toLowerCase().charAt(0);           //first letter of task name
+                        char firstLetter2 = t2.getName().toLowerCase().charAt(0);
+                            
+                        if (firstLetter1 == searchText.charAt(0) && firstLetter2 != searchText.charAt(0)) {         //task1 closer than task2 -> come first
+                            return -1;
+                        } else if (firstLetter1 != searchText.charAt(0) && firstLetter2 == searchText.charAt(0)) {  //task 2 closer than task1
+                            return 1;
+                        } else {
+                            return t1.getDueDate().compareTo(t2.getDueDate()); // same, compare by due date
+                        }
+                    }
+                    });
+                    for (Task task : matchingTasks) { //task from matchingTasks -> put task in model and model->list->scrollpane to show in gui
+                        model.addElement(task.getName() + " - Due : " + task.getDueDate()); //add("name - Due: xxxx-xx-xx)
+                    }
+        }
+        else{
+            taskPopup.setVisible(false); //not type anything -> hide
+        }
+        revalidate(); //to refresh
+    }//GEN-LAST:event_searchFieldKeyReleased
     
     /**
      * @param args the command line arguments
@@ -487,20 +610,24 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     private decorClass.RoundedPanel CalendarRoundPanel;
     private javax.swing.JPanel SearchTool;
     private decorClass.CircleButton addButton;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel leftP;
     private javax.swing.JPanel lowerP3;
-    private javax.swing.JPanel noteDisplay;
     private decorClass.RoundedPanel noteEditPanel;
-    private javax.swing.JScrollPane noteScroll;
-    private decorClass.CircleButton notificationButton;
+    private NotePad.NotepadGUI notepadGUI1;
+    private javax.swing.JPanel p;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel rightP;
     private decorClass.RoundedButton searchButton;
+    private javax.swing.JTextField searchField;
     private decorClass.RoundedPanel searchPanel;
     private time.Stopwatch stopwatch1;
+    private javax.swing.JList<String> suggestionList;
+    private javax.swing.JScrollPane suggestionScrollPane;
     private javax.swing.JPanel swm_panel;
     private javax.swing.JLabel taskLabel;
+    private javax.swing.JPopupMenu taskPopup;
     private javax.swing.JPanel timerPanel;
     private javax.swing.JPanel todoPanel;
     private javax.swing.JScrollPane todoScroll;

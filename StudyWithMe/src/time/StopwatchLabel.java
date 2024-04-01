@@ -12,13 +12,14 @@ public class StopwatchLabel extends JPanel{
         
         pLabel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         label = new JLabel(title);
+        label.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
         pLabel.add(label);
         
         time = new JLabel();
         time.setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 5));
         time.setHorizontalAlignment(JTextField.CENTER);
         time.setForeground(Color.BLACK);
-        time.setFont(new Font(time.getFont().getName(), time.getFont().getStyle(), 32));
+        time.setFont(new Font("Comic Sans MS", time.getFont().getStyle(), 28));
         
         bgPanel = new JPanel();
         bgPanel.setBorder(BorderFactory.createLineBorder(Color.black, 1));
