@@ -14,17 +14,19 @@ import javax.swing.*;
 
 /**
  *
- * @author Admin
+ * @author plengkubpom
  */
 public class AllJFrame extends JFrame implements MouseListener{
     int round = 0;
     int numRow = 1;
     int numCol = 1;
     public EditButton editButton;
+    private TaskData data;
     ArrayList<TaskPattern> tasklist;
     ArrayList<TaskData> taskdatalist;
     
     public void removeTask(int i){
+        //i = round-1 from editdelete class
         tasklist.remove(i);
         this.round -= 1;
         refreshTask();
@@ -32,18 +34,43 @@ public class AllJFrame extends JFrame implements MouseListener{
     public void clearAllTask(){
         panel.removeAll();
         tasklist.clear();
-        //this.round = 0;
+        taskdatalist.clear();
+        this.round = 0;
     }
     //clear n re-read
     public void refreshTask(){
         panel.removeAll();
         addTaskToPanel();
-        
+    }
+    public void recreateTask(){
+        System.out.print("taskdata num = "+taskdatalist.size());
+        panel.removeAll();
+        tasklist.clear();
+        for (int i = 0; i < taskdatalist.size(); i++) {
+                tasklist.add(new TaskPattern(this, i+1, taskdatalist.get(i)));
+            }
+        refreshTask();
+    }
+    /*
+    public void displayTaskName(int i){
+        //not working noi mak del later
+        tasklist.get(i).resetTitleName();
+    }*/
+    public void addTaskdatalist(int i, TaskData data){
+        //i = round-1
+        taskdatalist.add(i, data);
+        taskdatalist.remove(i+1);
+        //check
+        for (int j = 0; j < taskdatalist.size(); j++) {
+            System.out.println("check taskdata");
+            System.out.println(taskdatalist.get(j).gettaskname());
+        }
     }
     public AllJFrame() {
         initComponents();
         editButton = new EditButton();
         tasklist = new ArrayList();
+        taskdatalist = new ArrayList();
     }
 
     /**
@@ -375,9 +402,11 @@ public class AllJFrame extends JFrame implements MouseListener{
         addTask.addActionListener((ActionEvent e) -> {
             panel.removeAll();
             round += 1;
-            TaskPattern task = new TaskPattern(this, round);
+            TaskPattern task = new TaskPattern(this, round, new TaskData());
             tasklist.add(task);
+            taskdatalist.add(task.getdata());
             System.out.println("tasklist num : "+tasklist.size());
+            System.out.println("taskdata num : "+taskdatalist.size());
             
             addTaskToPanel();
             
