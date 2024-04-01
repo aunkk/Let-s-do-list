@@ -1,6 +1,7 @@
 
 package decorClass;
 //import decorClass.;
+import Main.MainTask;
 import MainSWM.EditDelete;
 import java.awt.event.*;
 //import Main.*;
@@ -22,14 +23,21 @@ public class TaskPattern extends javax.swing.JPanel {
     
     public static void setTitleName(String taskname){
         taskTitle.setText(taskname);
+        MainTask.setTitleName(taskname);
+    }
+    
+    public static String getTitleName(){
+        return taskname;
     }
     
     public static void setState(String status){
         if (status.equals("available")) {
             TaskPattern.state = 1;
+            MainTask.setStatus(1);
         }
         else if (status.equals("not available")) {
             TaskPattern.state = 0;
+            MainTask.setStatus(0);
         }
     }
     public static int getState(){

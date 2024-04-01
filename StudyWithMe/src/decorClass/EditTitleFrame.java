@@ -4,6 +4,7 @@
  */
 package decorClass;
 
+import Main.MainTask;
 import java.awt.Color;
 import javax.swing.*;
 
