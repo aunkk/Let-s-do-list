@@ -14,7 +14,7 @@ public class TaskPattern extends javax.swing.JPanel {
     private int taskOrder;
     private String taskname;
     private int state;
-    private TaskData data = new TaskData();
+    private TaskData data;
     private AllJFrame allj;
 //    private String status;
     /**
@@ -22,23 +22,23 @@ public class TaskPattern extends javax.swing.JPanel {
      * @param allj
      * @param taskOrder
      */
-    public TaskPattern(AllJFrame allj, int taskOrder) {
-        initComponents();
+    public TaskPattern(AllJFrame allj, int taskOrder, TaskData data) {
         //state = 0;
         //data = new TaskData();
         this.allj = allj;
+        this.data = data;
         this.taskOrder = taskOrder;
-        taskname = data.gettaskname();
-        state = data.getstate();
+        this.taskname = data.gettaskname();
+        this.state = data.getstate();
+        initComponents();
     }
     public int getTaskOrder() {
         return taskOrder;
     }
-    public void setTaskTitle(String taskname) {
-        taskTitle.setText(taskname);
+    public TaskData getdata() {
+        return data;
     }
-    
-    public void setTitleName(String taskname){
+    public void setTaskTitle(String taskname){
         //data.settaskname(taskname);
         taskTitle.setText(taskname);
     }
@@ -92,7 +92,7 @@ public class TaskPattern extends javax.swing.JPanel {
 
         taskTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         taskTitle.setForeground(new java.awt.Color(60, 74, 61));
-        taskTitle.setText(data.gettaskname());
+        taskTitle.setText(taskname);
         taskTitle.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 taskTitleStateChanged(evt);
@@ -178,7 +178,7 @@ public class TaskPattern extends javax.swing.JPanel {
 
     private void taskTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taskTitleMouseClicked
         if (evt.getClickCount() == 2) {
-            EditTitleFrame newText = new EditTitleFrame(data, this);
+            EditTitleFrame newText = new EditTitleFrame(allj, data, this);
             newText.setLocationRelativeTo(null);
             newText.setVisible(true);
             /*
@@ -186,14 +186,16 @@ public class TaskPattern extends javax.swing.JPanel {
                 data.settaskname(newText.getTextEditor());
                 System.out.println(newText.getTextEditor());
             }*/
-            taskname = data.gettaskname();
+            System.out.println("no."+taskOrder+", name: "+data.gettaskname()+", des.: "+data.getdes()+", d/m/y : "+data.getdmy());
         }
     }//GEN-LAST:event_taskTitleMouseClicked
 
     private void taskTitleStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_taskTitleStateChanged
         if (taskTitle.isSelected()) {
+            //data.setstate(1);
             taskTitle.setForeground(new java.awt.Color(187,187,187)); // ????????????
         } else {
+            //data.setstate(0);
             taskTitle.setForeground(new java.awt.Color(60, 74, 61)); // ???????????????
         }
     }//GEN-LAST:event_taskTitleStateChanged
@@ -206,7 +208,4 @@ public class TaskPattern extends javax.swing.JPanel {
     private static javax.swing.JCheckBox taskTitle;
     // End of variables declaration//GEN-END:variables
 
-    void updateTaskTitle() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

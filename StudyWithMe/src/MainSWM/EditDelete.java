@@ -131,7 +131,7 @@ public class EditDelete extends javax.swing.JFrame {
     }//GEN-LAST:event_EditButtonMouseClicked
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-        MainTask setNewText = new MainTask(data, tp);
+        MainTask setNewText = new MainTask(allj, data, tp);
         setNewText.setLocationRelativeTo(null);
         setNewText.setVisible(true);
         this.dispose();

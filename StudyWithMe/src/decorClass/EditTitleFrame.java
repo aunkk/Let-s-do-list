@@ -5,6 +5,7 @@
 package decorClass;
 
 import Main.MainTask;
+import MainSWM.AllJFrame;
 import java.awt.Color;
 import javaant.TaskData;
 import javax.swing.*;
@@ -14,15 +15,16 @@ import javax.swing.*;
  * @author DELL
  */
 public class EditTitleFrame extends JFrame {
-    public String textEditor;
     private TaskData data;
     private TaskPattern tp;
+    private AllJFrame allj;
     /**
      * Creates new form EditTitleFrame
      */
     
     
-    public EditTitleFrame(TaskData data, TaskPattern tp) {
+    public EditTitleFrame(AllJFrame allj, TaskData data, TaskPattern tp) {
+        this.allj = allj;
         this.data = data;
         this.tp = tp;
         System.out.println("ETF : task no. "+tp.getTaskOrder());
@@ -155,12 +157,13 @@ public class EditTitleFrame extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoneButtonActionPerformed
-        textEditor = EditorField.getText();
+        String textEditor = EditorField.getText();
         data.settaskname(textEditor);
         System.out.println(textEditor);
-        //tp.setTitleName(textEditor);
-        //tp.setTitleName(data.gettaskname());
-        tp.resetTitleName();
+        //tp.setTaskTitle(textEditor);
+        //tp.setTaskTitle(data.gettaskname());
+        allj.addTaskdatalist(tp.getTaskOrder()-1, data);
+        allj.recreateTask();
         this.dispose();
     }//GEN-LAST:event_DoneButtonActionPerformed
 

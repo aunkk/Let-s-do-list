@@ -1,6 +1,7 @@
 package Main;
 
 //import *;
+import MainSWM.AllJFrame;
 import decorClass.*;
 import java.util.HashMap;
 import javaant.TaskData;
@@ -15,8 +16,10 @@ public class MainTask extends javax.swing.JFrame {
     private String description;
     private static int state;
     private TaskData data;
+    private AllJFrame allj;
     
-    public MainTask(TaskData data, TaskPattern tp) {
+    public MainTask(AllJFrame allj, TaskData data, TaskPattern tp) {
+        this.allj = allj;
         this.data = data;
         this.tp = tp;
         System.out.println("MT : task no. "+tp.getTaskOrder());
@@ -320,8 +323,9 @@ public class MainTask extends javax.swing.JFrame {
         System.out.println(taskname);
         System.out.println(description);
         */
-        //tp.setTitleName(taskname);
-        tp.resetTitleName();
+        //tp.setTaskTitle(data.gettaskname());
+        allj.addTaskdatalist(tp.getTaskOrder()-1, data);
+        allj.recreateTask();
         //dispose();
     }//GEN-LAST:event_doneButtonActionPerformed
 
