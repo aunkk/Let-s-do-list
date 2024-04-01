@@ -90,4 +90,8 @@ public class TaskData {
     public String getYear() {return year;}
     public String[] getdmyArray() {return d_m_y;}
     public String getMonthEN() {return MONTH_ENGLISH[Integer.parseInt(month)-1];}
+    public String getdmyEN() {
+        String dmyEN = date+"/"+getMonthEN()+"/"+year;
+        return dmyEN;
+    }
 }
