@@ -39,7 +39,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         createMenuFileItem();
         createMenuAddItem();
         createMenuDrawingItem();
-        createMenuFormat();
+        createMenuFormatItem();
         createMenuEdit();
         this.setVisible(true);
     }
@@ -136,7 +136,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         itemExit.setActionCommand("Exit");
         menuFile.add(itemExit);
     }
-    private void createMenuFormat(){
+    private void createMenuFormatItem(){
         itemDisplay = new JMenuItem("Dark Mode");
         itemDisplay.setFont(CustomFont.getMenuFont());
         itemDisplay.addActionListener(this);
