@@ -16,6 +16,8 @@ public class TaskData implements Serializable{
     private String description = "Description...";
     private int state = 0;
     
+    private final String MONTH_ENGLISH[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    
     public TaskData() {
         this.taskname = "Your Task";
         this.state = 0;
@@ -90,5 +92,9 @@ public class TaskData implements Serializable{
     public String getMonth() {return month;}
     public String getYear() {return year;}
     public String[] getdmyArray() {return d_m_y;}
-    
+    public String getMonthEN() {return MONTH_ENGLISH[Integer.parseInt(month)-1];}
+    public String getdmyEN() {
+        String dmyEN = date+"/"+getMonthEN()+"/"+year;
+        return dmyEN;
+    }
 }
