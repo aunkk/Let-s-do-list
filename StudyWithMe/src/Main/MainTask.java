@@ -316,14 +316,6 @@ public class MainTask extends javax.swing.JFrame {
         data.setYear(year);
         data.settaskname(taskname);
         data.setdes(description);
-        /*
-        System.out.println("-----------");
-        System.out.println(data.getdmy());
-        System.out.println(state);
-        System.out.println(taskname);
-        System.out.println(description);
-        */
-        //tp.setTaskTitle(data.gettaskname());
         allj.addTaskdatalist(tp.getTaskOrder()-1, data);
         allj.recreateTask();
         //dispose();

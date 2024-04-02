@@ -44,6 +44,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     }
     //clear n re-read
     public void refreshTask(){
+        this.round = taskdatalist.size();
         panel.removeAll();
         addTaskToPanel();
     }
