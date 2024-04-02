@@ -7,10 +7,10 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
     protected JScrollPane noteWithScrollPane;
     protected JMenuBar menuBar;
     protected JMenu menuDrawing, menuFile, menuFormat, menuEdit, menuAdd;
-    protected JMenuItem itemFree, itemLine, itemRect, itemErase, itemNew, itemOpen, itemSave,
-            itemSaveAs, itemExit, itemWrap, itemDisplay, itemRedo, itemUndo, itemImages;
+    protected JMenuItem itemFree, itemErase, itemNew, itemOpen, itemSave,
+            itemSaveAs, itemExit, itemDisplay, itemRedo, itemUndo, itemImages;
     protected Functional_File file = new Functional_File(this);
-    protected Functional_View view = new Functional_View(this);
+    protected Functional_Format format = new Functional_Format(this);
     protected Functional_Edit edit = new Functional_Edit(this);
     protected Functional_Add add = new Functional_Add(this);
     protected UndoManager um = new UndoManager();
@@ -28,7 +28,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
             case "Exit": file.exit(); break;
             case "Undo": edit.undo(); break;
             case "Redo": edit.redo(); break;
-            case "Display": view.displayColor(); break;
+            case "Display": format.displayColor(); break;
             
         }
     }
@@ -39,7 +39,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         createMenuFileItem();
         createMenuAddItem();
         createMenuDrawingItem();
-        createMenuView();
+        createMenuFormat();
         createMenuEdit();
         this.setVisible(true);
     }
@@ -93,14 +93,6 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         menuAdd.add(menuDrawing);
     }
     private void createMenuDrawingItem(){
-        /*itemLine = new JMenuItem("Line");
-        itemLine.setFont(CustomFont.getMenuFont());
-        menuDrawing.add(itemLine);
-        
-        itemRect = new JMenuItem("Rectangle");
-        itemRect.setFont(CustomFont.getMenuFont());
-        menuDrawing.add(itemRect);*/
-        
         itemFree = new JMenuItem("Free Hand");
         itemFree.setFont(CustomFont.getMenuFont());
         itemFree.addActionListener(this);
@@ -144,7 +136,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         itemExit.setActionCommand("Exit");
         menuFile.add(itemExit);
     }
-    private void createMenuView(){
+    private void createMenuFormat(){
         itemDisplay = new JMenuItem("Dark Mode");
         itemDisplay.setFont(CustomFont.getMenuFont());
         itemDisplay.addActionListener(this);

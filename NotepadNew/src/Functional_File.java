@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.*;
 import java.io.*;
@@ -10,9 +9,6 @@ public class Functional_File {
             this.notepad = notepad;
         }
         public void newFile(){
-            /*notepad.note = new Notepad();
-            notepad.noteWithScrollPane = new JScrollPane(notepad.note, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-            notepad.add(new Notepad());*/
             notepad.note.setText("");
             notepad.note.lines.clear();
             notepad.setTitle("New");
