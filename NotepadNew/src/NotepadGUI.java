@@ -40,7 +40,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         createMenuAddItem();
         createMenuDrawingItem();
         createMenuFormatItem();
-        createMenuEdit();
+        createMenuEditItem();
         this.setVisible(true);
     }
     private void createNotepadWindow(){
@@ -143,7 +143,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
         itemDisplay.setActionCommand("Display");
         menuFormat.add(itemDisplay);
     }
-    private void createMenuEdit(){
+    private void createMenuEditItem(){
         itemUndo = new JMenuItem("Undo");
         itemUndo.setFont(CustomFont.getMenuFont());
         itemUndo.addActionListener(this);
