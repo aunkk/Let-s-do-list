@@ -27,7 +27,6 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
     private TaskData data;
     ArrayList<TaskPattern> tasklist;
     ArrayList<TaskData> taskdatalist;
-    ArrayList<Task> tasks; //object tasks from class Task
     DefaultListModel<String> model;
     
     public void removeTask(int i){
@@ -78,25 +77,28 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         
         taskPopup.add(p); //add panel to taskPopup
         
-        tasks = new ArrayList<>(); //tasks is arrayList to store task
-        tasks.add(new Task("do homework", "2024-04-01")); // Example task data
-        tasks.add(new Task("clean house", "2024-04-02")); // Example task data
-        tasks.add(new Task("OOP project", "2024-05-01")); // Example task data
-        tasks.add(new Task("FE test", "2024-03-02")); // Example task data
-        tasks.add(new Task("business project", "2024-05-02"));
-        tasks.add(new Task("my birthday!", "2024-05-03"));
-        tasks.add(new Task("go vacation", "2024-05-30"));
-        tasks.add(new Task("midterm", "2024-06-02"));
-        tasks.add(new Task("prob quiz#1", "2024-06-02"));
-        tasks.add(new Task("prob quiz#2", "2024-12-02"));
-        tasks.add(new Task("prob quiz#3", "2024-12-02"));
-        tasks.add(new Task("prob quiz#4", "2024-12-02"));
-        tasks.add(new Task("data structure homework", "2024-11-02"));
-        tasks.add(new Task("business quiz", "2024-11-05"));
-        tasks.add(new Task("my cat's birthday!", "2024-06-22"));
-        tasks.add(new Task("go shopping", "2024-12-02"));
-        tasks.add(new Task("study for midterm", "2024-12-02"));
-        tasks.add(new Task("math quiz", "2024-12-02"));
+        new ArrayList<>(); //tasks is arrayList to store task+due
+        
+        /*
+        taskdue.add(new Task("do homework", "2024-04-01")); // Example task data
+        taskdue.add(new Task("clean house", "2024-04-02")); // Example task data
+        taskdue.add(new Task("OOP project", "2024-05-01")); // Example task data
+        taskdue.add(new Task("FE test", "2024-03-02")); // Example task data
+        taskdue.add(new Task("business project", "2024-05-02"));
+        taskdue.add(new Task("my birthday!", "2024-05-03"));
+        taskdue.add(new Task("go vacation", "2024-05-30"));
+        taskdue.add(new Task("midterm", "2024-06-02"));
+        taskdue.add(new Task("prob quiz#1", "2024-06-02"));
+        taskdue.add(new Task("prob quiz#2", "2024-12-02"));
+        taskdue.add(new Task("prob quiz#3", "2024-12-02"));
+        taskdue.add(new Task("prob quiz#4", "2024-12-02"));
+        taskdue.add(new Task("data structure homework", "2024-11-02"));
+        taskdue.add(new Task("business quiz", "2024-11-05"));
+        taskdue.add(new Task("my cat's birthday!", "2024-06-22"));
+        taskdue.add(new Task("go shopping", "2024-12-02"));
+        taskdue.add(new Task("study for midterm", "2024-12-02"));
+        taskdue.add(new Task("math quiz", "2024-12-02"));
+        */
         
         
         model = new DefaultListModel<>(); // create model
@@ -288,8 +290,14 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
 
         searchField.setBackground(new java.awt.Color(218, 249, 226));
         searchField.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        searchField.setForeground(new java.awt.Color(0, 153, 153));
         searchField.setText("searchBar");
         searchField.setBorder(null);
+        searchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFieldActionPerformed(evt);
+            }
+        });
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchFieldKeyReleased(evt);
@@ -441,7 +449,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             .addGroup(lowerP3Layout.createSequentialGroup()
                 .addGroup(lowerP3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lowerP3Layout.createSequentialGroup()
-                        .addContainerGap(288, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(noteEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -543,28 +551,28 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         model.removeAllElements(); //clear model
         if (!searchText.isEmpty()) {
             taskPopup.show(searchField, 0, searchField.getHeight());
-            ArrayList<Task> matchingTasks = new ArrayList<>(); //new ArtrayList to store matching task
-                    for (Task task : tasks) {   //task = object in tasks -> loop to compare searchText-task
-                        if (task.getName().toLowerCase().contains(searchText) || task.getDueDate().contains(searchText)) { //1.check from name 2.check from duedate -> use (.contains(searchText))
+            ArrayList<TaskData> matchingTasks = new ArrayList<>(); //new ArtrayList to store matching task
+                    for (TaskData task : taskdatalist) {   //task = object in tasks -> loop to compare searchText-task
+                        if (task.gettaskname().toLowerCase().contains(searchText) || (task.getYear()+"-"+task.getMonth()+"-"+task.getDate()).contains(searchText)) { //1.check from name 2.check from duedate -> use (.contains(searchText))
                             matchingTasks.add(task); //if match add match-task to matchingTasks-ArrayList
                         }
                     }
-                    Collections.sort(matchingTasks, new Comparator<Task>() {                    //Sort matchingTask // Comparator is filter -> sort(ArrayList, filter)
-                        public int compare(Task t1, Task t2) {                                  // filter -> show task with 1st.closer name -> 2nd.closer due date
-                        char firstLetter1 = t1.getName().toLowerCase().charAt(0);           //first letter of task name
-                        char firstLetter2 = t2.getName().toLowerCase().charAt(0);
+                    Collections.sort(matchingTasks, new Comparator<TaskData>() {                    //Sort matchingTask // Comparator is filter -> sort(ArrayList, filter)
+                        public int compare(TaskData t1, TaskData t2) {                                  // filter -> show task with 1st.closer name -> 2nd.closer due date
+                        char firstLetter1 = t1.gettaskname().toLowerCase().charAt(0);           //first letter of task name
+                        char firstLetter2 = t2.gettaskname().toLowerCase().charAt(0);
                             
                         if (firstLetter1 == searchText.charAt(0) && firstLetter2 != searchText.charAt(0)) {         //task1 closer than task2 -> come first
                             return -1;
                         } else if (firstLetter1 != searchText.charAt(0) && firstLetter2 == searchText.charAt(0)) {  //task 2 closer than task1
                             return 1;
                         } else {
-                            return t1.getDueDate().compareTo(t2.getDueDate()); // same, compare by due date
+                            return (t1.getYear()+"-"+t1.getMonth()+"-"+t1.getDate()).compareTo(t2.getYear()+"-"+t2.getMonth()+"-"+t2.getDate()); // same, compare by due date
                         }
                     }
                     });
-                    for (Task task : matchingTasks) { //task from matchingTasks -> put task in model and model->list->scrollpane to show in gui
-                        model.addElement(task.getName() + " - Due : " + task.getDueDate()); //add("name - Due: xxxx-xx-xx)
+                    for (TaskData task : matchingTasks) { //task from matchingTasks -> put task in model and model->list->scrollpane to show in gui
+                        model.addElement(task.gettaskname() + " - Due : " + (task.getYear()+"-"+task.getMonth()+"-"+task.getDate()));; //add("name - Due: xxxx-xx-xx)
                     }
         }
         else{
@@ -572,6 +580,10 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         }
         revalidate(); //to refresh
     }//GEN-LAST:event_searchFieldKeyReleased
+
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchFieldActionPerformed
     
     /**
      * @param args the command line arguments
