@@ -12,7 +12,7 @@ public class NotepadGUI extends JInternalFrame implements ActionListener{
     protected JMenuItem itemFree, itemLine, itemRect, itemErase, itemNew, itemOpen, itemSave,
             itemSaveAs, itemExit, itemWrap, itemDisplay, itemRedo, itemUndo, itemImages;
     
-    protected Functional_File file;
+    public Functional_File file;
     protected Functional_View view;
     protected Functional_Edit edit;
     protected Functional_Add add;

@@ -56,11 +56,6 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
             }
         refreshTask();
     }
-    /*
-    public void displayTaskName(int i){
-        //not working noi mak del later
-        tasklist.get(i).resetTitleName();
-    }*/
     public void addTaskdatalist(int i, TaskData data){
         //i = round-1
         taskdatalist.add(i, data);
@@ -76,31 +71,6 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         editButton = new EditButton();
         
         taskPopup.add(p); //add panel to taskPopup
-        
-        new ArrayList<>(); //tasks is arrayList to store task+due
-        
-        /*
-        taskdue.add(new Task("do homework", "2024-04-01")); // Example task data
-        taskdue.add(new Task("clean house", "2024-04-02")); // Example task data
-        taskdue.add(new Task("OOP project", "2024-05-01")); // Example task data
-        taskdue.add(new Task("FE test", "2024-03-02")); // Example task data
-        taskdue.add(new Task("business project", "2024-05-02"));
-        taskdue.add(new Task("my birthday!", "2024-05-03"));
-        taskdue.add(new Task("go vacation", "2024-05-30"));
-        taskdue.add(new Task("midterm", "2024-06-02"));
-        taskdue.add(new Task("prob quiz#1", "2024-06-02"));
-        taskdue.add(new Task("prob quiz#2", "2024-12-02"));
-        taskdue.add(new Task("prob quiz#3", "2024-12-02"));
-        taskdue.add(new Task("prob quiz#4", "2024-12-02"));
-        taskdue.add(new Task("data structure homework", "2024-11-02"));
-        taskdue.add(new Task("business quiz", "2024-11-05"));
-        taskdue.add(new Task("my cat's birthday!", "2024-06-22"));
-        taskdue.add(new Task("go shopping", "2024-12-02"));
-        taskdue.add(new Task("study for midterm", "2024-12-02"));
-        taskdue.add(new Task("math quiz", "2024-12-02"));
-        */
-        
-        
         model = new DefaultListModel<>(); // create model
         suggestionList.setModel(model); //put model in list
         loadfile();
@@ -525,7 +495,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         addNote.setBackground(Color.WHITE);
         addNote.addActionListener((ActionEvent e) -> {
             
-            //add note detail here
+            notepadGUI1.file.newFile();
             
             Window window = SwingUtilities.getWindowAncestor(addNote);
             if (window != null) {
