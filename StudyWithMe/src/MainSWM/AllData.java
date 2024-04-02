@@ -9,7 +9,8 @@ import javaant.TaskData;
  *
  * @author Admin
  */
-public class AllData implements Serializable{
+public class AllData<T> implements Serializable{
+    private T data;
     //ArrayList<TaskPattern> tasklist;
     ArrayList<TaskData> taskdatalist;
     //ArrayList<something> notelist;
@@ -31,4 +32,10 @@ public class AllData implements Serializable{
     public ArrayList<something> getNotelist(){
         return notelist;
     }*/
+    public T getdata() {
+        return data;
+    }
+    public void setdata(T data){
+        this.data = data;
+    }
 }

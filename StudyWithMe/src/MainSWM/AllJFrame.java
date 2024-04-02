@@ -645,8 +645,8 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
 
     @Override
     public void savefile() {
-        AllData saveall = new AllData();
-        saveall.setTaskdatalist(taskdatalist);
+        AllData<ArrayList<TaskData>> saveall = new AllData();
+        saveall.setdata(taskdatalist);
 
         try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oout.writeObject(saveall);
@@ -662,10 +662,10 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         
         try (FileInputStream fileIn = new FileInputStream(filePath);
              ObjectInputStream oin = new ObjectInputStream(fileIn)) {
-            AllData readSave = (AllData) oin.readObject();
+            AllData<ArrayList<TaskData>> readSave = (AllData) oin.readObject();
             System.out.println("Object read");
             tasklist = new ArrayList();
-            taskdatalist = readSave.getTaskdatalist();
+            taskdatalist = readSave.getdata();
             recreateTask();
             
         } catch (Exception e) {
