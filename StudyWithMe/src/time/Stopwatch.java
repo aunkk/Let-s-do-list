@@ -19,6 +19,7 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
     private boolean isStopwatch, showEdit;
     private JFrame editFrame;
     private JComboBox combohr, combomin, combosec;
+    private final int millisecond;
     
     int elapsedTime = 0;
     int seconds = 0;
@@ -36,7 +37,7 @@ public class Stopwatch extends JPanel implements ActionListener, MouseListener{
     Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e){
-            elapsedTime += 1000;
+            elapsedTime += millisecond;
             hours = (elapsedTime/3600000);
             minutes = (elapsedTime/60000)%60;
             seconds = (elapsedTime/1000)%60;
