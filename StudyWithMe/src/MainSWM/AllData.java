@@ -14,9 +14,13 @@ public class AllData<T> implements Serializable{
     //ArrayList<TaskPattern> tasklist;
     ArrayList<TaskData> taskdatalist;
     //ArrayList<something> notelist;
-    /*public void setTasklist(ArrayList tasklist){
-        this.tasklist = tasklist;
-    }*/
+    public T getdata() {
+        return data;
+    }
+    public void setdata(T data){
+        this.data = data;
+    }
+    
     public void setTaskdatalist(ArrayList taskdatalist){
         this.taskdatalist = taskdatalist;
     }
@@ -32,10 +36,4 @@ public class AllData<T> implements Serializable{
     public ArrayList<something> getNotelist(){
         return notelist;
     }*/
-    public T getdata() {
-        return data;
-    }
-    public void setdata(T data){
-        this.data = data;
-    }
 }
