@@ -351,7 +351,7 @@ public class AllJFrame extends JFrame implements savable, MouseListener{
         jPanel1.setBackground(new java.awt.Color(211, 235, 221));
 
         swm_panel.add(swm);
-        swm_panel.setBackground(new java.awt.Color(222, 230, 255));
+        swm_panel.setBackground(new java.awt.Color(218, 249, 226));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

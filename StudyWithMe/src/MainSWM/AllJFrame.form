@@ -521,7 +521,7 @@
                     <Container class="javax.swing.JPanel" name="swm_panel">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="e6" red="de" type="rgb"/>
+                          <Color blue="e2" green="f9" red="da" type="rgb"/>
                         </Property>
                       </Properties>
                       <AuxValues>
