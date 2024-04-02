@@ -208,6 +208,17 @@ public class MainTask extends javax.swing.JFrame {
         doneButton.setForeground(new java.awt.Color(37, 74, 58));
         doneButton.setText("Done");
         doneButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        doneButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButtonMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                doneButtonMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                doneButtonMouseReleased(evt);
+            }
+        });
         doneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doneButtonActionPerformed(evt);
@@ -338,6 +349,18 @@ public class MainTask extends javax.swing.JFrame {
     private void monthFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthFieldMouseClicked
         monthField.selectAll();
     }//GEN-LAST:event_monthFieldMouseClicked
+
+    private void doneButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButtonMouseClicked
+        
+    }//GEN-LAST:event_doneButtonMouseClicked
+
+    private void doneButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButtonMouseReleased
+        doneButton.setBackground(new java.awt.Color(160, 198, 190));
+    }//GEN-LAST:event_doneButtonMouseReleased
+
+    private void doneButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButtonMousePressed
+        doneButton.setBackground(new java.awt.Color(211, 235, 221));
+    }//GEN-LAST:event_doneButtonMousePressed
 
     
     

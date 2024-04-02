@@ -116,6 +116,7 @@ public class EditDelete extends javax.swing.JFrame {
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
         allj.removeTask(tp.getTaskOrder()-1);
         allj.recreateTask();
+        this.dispose();
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
